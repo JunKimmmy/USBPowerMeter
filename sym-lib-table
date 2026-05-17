@@ -1,0 +1,5 @@
+(sym_lib_table
+	(version 7)
+	(lib (name "USB4215") (type "KiCad") (uri "C:/Users/jun31/Downloads/USB4215_03_A/KiCADv6/2026-05-13_14-42-18.kicad_sym") (options "") (descr ""))
+	(lib (name "USB4155-03-C_REVA") (type "KiCad") (uri "C:/Users/jun31/Downloads/USB4155_03_C (1)/USB4155-03-C_REVA.kicad_sym") (options "") (descr ""))
+)

@@ -1,0 +1,321 @@
+(footprint "VQFN-12_L3.0-W2.0-P0.65-BL_TI_RNX"
+	(version 20241229)
+	(generator "easyeda2kicad-ts")
+	(layer "F.Cu")
+	(attr smd)
+	(property "Reference" "REF**"
+		(at 0 -4.9 0)
+		(layer "F.SilkS")
+		(uuid "ff6c80a2-5de7-4470-8f42-a6424e6e4228")
+		(effects
+			(font
+				(size 1 1)
+				(thickness 0.15)
+			)
+		)
+	)
+	(property "Value" "VQFN-12_L3.0-W2.0-P0.65-BL_TI_RNX"
+		(at 0 4.9 0)
+		(layer "F.Fab")
+		(uuid "19c41c3f-1ded-4b1a-aea8-34cc322c3ea8")
+		(effects
+			(font
+				(size 1 1)
+				(thickness 0.15)
+			)
+		)
+	)
+	(property "Datasheet" ""
+		(at 0 0 0)
+		(layer "F.Fab")
+		(hide yes)
+		(uuid "d52632dd-766c-47fb-8bf5-e09f8a9b3f38")
+		(effects
+			(font
+				(size 1 1)
+				(thickness 0.15)
+			)
+		)
+	)
+	(property "Description" ""
+		(at 0 0 0)
+		(layer "F.Fab")
+		(hide yes)
+		(uuid "997572f7-cdef-4ef3-a132-a92949461e86")
+		(effects
+			(font
+				(size 1 1)
+				(thickness 0.15)
+			)
+		)
+	)
+	(property "LCSC Part" "C1850366"
+		(at 0 6.9 0)
+		(layer "F.Fab")
+		(hide yes)
+		(uuid "8c7390cf-a7e7-4245-8ce1-42fe32ed450b")
+		(effects
+			(font
+				(size 1 1)
+				(thickness 0.15)
+			)
+		)
+	)
+	(property "Part Name" "LMR36006CRNXR"
+		(at 0 8.9 0)
+		(layer "F.Fab")
+		(hide yes)
+		(uuid "34642f9a-3203-47f3-9791-8eafc1fd51cb")
+		(effects
+			(font
+				(size 1 1)
+				(thickness 0.15)
+			)
+		)
+	)
+	(property "Manufacturer" "TI(德州仪器)"
+		(at 0 10.9 0)
+		(layer "F.Fab")
+		(hide yes)
+		(uuid "c856c2ae-002a-4d25-aba8-af40faa2d1ae")
+		(effects
+			(font
+				(size 1 1)
+				(thickness 0.15)
+			)
+		)
+	)
+	(fp_text user "%R"
+		(at 0 0)
+		(layer "F.Fab")
+		(uuid "d8b1e4a2-bbe0-46ca-aed9-b453a68622f1")
+		(effects
+			(font
+				(size 1 1)
+				(thickness 0.15)
+			)
+		)
+	)
+	(fp_line
+		(start 0.9 1)
+		(end 1.37 1)
+		(stroke
+			(width 0.254)
+			(type solid)
+		)
+		(layer "F.SilkS")
+		(uuid "b9918b74-9a4f-4f88-a000-a07cbdf62f28")
+	)
+	(fp_line
+		(start -1.63 1)
+		(end -1.61 1)
+		(stroke
+			(width 0.254)
+			(type solid)
+		)
+		(layer "F.SilkS")
+		(uuid "9a5fc2db-7d36-4ee3-b631-de3cd79f7f88")
+	)
+	(fp_line
+		(start 0.9 -1)
+		(end 1.37 -1)
+		(stroke
+			(width 0.254)
+			(type solid)
+		)
+		(layer "F.SilkS")
+		(uuid "7ff7273e-7e62-47c5-91c6-f2fa8608b34e")
+	)
+	(fp_line
+		(start -1.63 -1)
+		(end -1.61 -1)
+		(stroke
+			(width 0.254)
+			(type solid)
+		)
+		(layer "F.SilkS")
+		(uuid "e1299453-710d-4938-b9d2-ab4a8d48f70d")
+	)
+	(fp_line
+		(start 1.37 0.86)
+		(end 1.37 1)
+		(stroke
+			(width 0.254)
+			(type solid)
+		)
+		(layer "F.SilkS")
+		(uuid "cc4739f1-2506-44c1-8bc9-9cdfd0c2d5ac")
+	)
+	(fp_line
+		(start -1.63 -0.36)
+		(end -1.63 -1)
+		(stroke
+			(width 0.254)
+			(type solid)
+		)
+		(layer "F.SilkS")
+		(uuid "809b4b86-7fec-42d9-a1b4-f4adabe79e10")
+	)
+	(fp_line
+		(start -1.63 1)
+		(end -1.63 0.36)
+		(stroke
+			(width 0.254)
+			(type solid)
+		)
+		(layer "F.SilkS")
+		(uuid "62cdd88f-8792-4122-8dcc-c7050939edbb")
+	)
+	(fp_line
+		(start 1.37 -1)
+		(end 1.37 -0.86)
+		(stroke
+			(width 0.254)
+			(type solid)
+		)
+		(layer "F.SilkS")
+		(uuid "5d0af959-59b2-40f3-b56e-f20a74c4abe8")
+	)
+	(fp_line
+		(start -2.1 -1.45)
+		(end 1.85 -1.45)
+		(stroke
+			(width 0.05)
+			(type solid)
+		)
+		(layer "F.CrtYd")
+		(uuid "bebee02f-f17d-44d0-8488-513ee69c1d28")
+	)
+	(fp_line
+		(start 1.85 -1.45)
+		(end 1.85 2)
+		(stroke
+			(width 0.05)
+			(type solid)
+		)
+		(layer "F.CrtYd")
+		(uuid "813b1b4a-cb8f-472a-be2e-4274cd5d28ca")
+	)
+	(fp_line
+		(start 1.85 2)
+		(end -2.1 2)
+		(stroke
+			(width 0.05)
+			(type solid)
+		)
+		(layer "F.CrtYd")
+		(uuid "2371d8a2-c8f3-41d6-af8d-bbd12d9bdf07")
+	)
+	(fp_line
+		(start -2.1 -1.45)
+		(end -2.1 2)
+		(stroke
+			(width 0.05)
+			(type solid)
+		)
+		(layer "F.CrtYd")
+		(uuid "bb825865-976f-40c7-92a7-2be6d41f1932")
+	)
+	(pad "12" smd rect
+		(at -0.93 0 -90)
+		(size 0.25 1.82)
+		(layers "F.Cu" "F.Paste" "F.Mask")
+		(uuid "c524d132-09a3-4686-bb0a-fad96637214d")
+	)
+	(pad "11" smd rect
+		(at -1.26 -0.9 180)
+		(size 0.25 0.6)
+		(layers "F.Cu" "F.Paste" "F.Mask")
+		(uuid "b55ad314-001d-4869-9b83-ec24a1a37659")
+	)
+	(pad "10" smd rect
+		(at -0.61 -0.9 180)
+		(size 0.25 0.6)
+		(layers "F.Cu" "F.Paste" "F.Mask")
+		(uuid "28dd9129-87da-42d1-8c97-8352fe754ba3")
+	)
+	(pad "9" smd rect
+		(at 0.04 -0.9 180)
+		(size 0.25 0.6)
+		(layers "F.Cu" "F.Paste" "F.Mask")
+		(uuid "6c06cf8f-b69e-4f56-8436-646f9044adbd")
+	)
+	(pad "8" smd rect
+		(at 0.54 -0.9 180)
+		(size 0.25 0.6)
+		(layers "F.Cu" "F.Paste" "F.Mask")
+		(uuid "93820379-c305-46e9-8731-fc27b071d7e7")
+	)
+	(pad "7" smd rect
+		(at 1.26 -0.5 90)
+		(size 0.25 0.6)
+		(layers "F.Cu" "F.Paste" "F.Mask")
+		(uuid "e2312868-e898-4887-b7b8-af429d6a01d0")
+	)
+	(pad "6" smd rect
+		(at 1.26 0 90)
+		(size 0.25 0.6)
+		(layers "F.Cu" "F.Paste" "F.Mask")
+		(uuid "20a04b65-7921-4626-8f49-de3daca921d0")
+	)
+	(pad "5" smd rect
+		(at 1.26 0.5 90)
+		(size 0.25 0.6)
+		(layers "F.Cu" "F.Paste" "F.Mask")
+		(uuid "aa20ccb8-ef16-4be8-997f-dd189b531e3b")
+	)
+	(pad "4" smd rect
+		(at 0.54 0.9 0)
+		(size 0.25 0.6)
+		(layers "F.Cu" "F.Paste" "F.Mask")
+		(uuid "9dc9445f-05df-44f1-a9a9-e05550e067e5")
+	)
+	(pad "3" smd rect
+		(at 0.04 0.9 0)
+		(size 0.25 0.6)
+		(layers "F.Cu" "F.Paste" "F.Mask")
+		(uuid "57e3d96e-4224-483d-9a79-a112f93c7fa7")
+	)
+	(pad "2" smd rect
+		(at -0.61 0.9 0)
+		(size 0.25 0.6)
+		(layers "F.Cu" "F.Paste" "F.Mask")
+		(uuid "29735e72-c692-4edb-bb24-b53c05e9c563")
+	)
+	(pad "1" smd rect
+		(at -1.26 0.9 0)
+		(size 0.25 0.6)
+		(layers "F.Cu" "F.Paste" "F.Mask")
+		(uuid "9eebc653-f42a-4d4b-a940-e4375331b6e3")
+	)
+	(fp_circle
+		(center -1.64 1)
+		(end -1.61 1)
+		(stroke
+			(width 0.06)
+			(type solid)
+		)
+		(layer "F.SilkS")
+		(uuid "9adb13b9-629c-4cca-a178-da9ab6dace40")
+	)
+	(fp_circle
+		(center -1.27 1.51)
+		(end -1.17 1.51)
+		(stroke
+			(width 0.2)
+			(type solid)
+		)
+		(layer "Cmts.User")
+		(uuid "509083d7-b78b-43b0-bdb9-57326763a7c5")
+	)
+	(fp_circle
+		(center -1.27 1.51)
+		(end -1.17 1.51)
+		(stroke
+			(width 0.2)
+			(type solid)
+		)
+		(layer "F.SilkS")
+		(uuid "eb93f239-aa04-4823-abf5-94ca9384bcfa")
+	)
+)

@@ -1,0 +1,227 @@
+(footprint "SOT-23-3_L3.0-W1.7-P0.95-LS2.9-BR"
+	(version 20241229)
+	(generator "easyeda2kicad-ts")
+	(layer "F.Cu")
+	(attr smd)
+	(property "Reference" "REF**"
+		(at 0 -4.95 0)
+		(layer "F.SilkS")
+		(uuid "cfdafc5a-df55-4c51-b800-476d861a34e8")
+		(effects
+			(font
+				(size 1 1)
+				(thickness 0.15)
+			)
+		)
+	)
+	(property "Value" "SOT-23-3_L3.0-W1.7-P0.95-LS2.9-BR"
+		(at 0 4.95 0)
+		(layer "F.Fab")
+		(uuid "11670659-a0a9-49a2-bc31-a0487c6af7c1")
+		(effects
+			(font
+				(size 1 1)
+				(thickness 0.15)
+			)
+		)
+	)
+	(property "Datasheet" ""
+		(at 0 0 0)
+		(layer "F.Fab")
+		(hide yes)
+		(uuid "024801b8-a69e-419e-a305-2fb0ce1f0245")
+		(effects
+			(font
+				(size 1 1)
+				(thickness 0.15)
+			)
+		)
+	)
+	(property "Description" ""
+		(at 0 0 0)
+		(layer "F.Fab")
+		(hide yes)
+		(uuid "2f212f3e-8cd4-4e68-92b5-889807956605")
+		(effects
+			(font
+				(size 1 1)
+				(thickness 0.15)
+			)
+		)
+	)
+	(property "LCSC Part" "C241804"
+		(at 0 6.95 0)
+		(layer "F.Fab")
+		(hide yes)
+		(uuid "9599f298-5d8f-4a68-9c24-0dff5b1fdbf6")
+		(effects
+			(font
+				(size 1 1)
+				(thickness 0.15)
+			)
+		)
+	)
+	(property "Part Name" "FDN335N"
+		(at 0 8.95 0)
+		(layer "F.Fab")
+		(hide yes)
+		(uuid "8dddd1cc-ddab-4ea3-b669-d58344b8f3df")
+		(effects
+			(font
+				(size 1 1)
+				(thickness 0.15)
+			)
+		)
+	)
+	(property "Manufacturer" "onsemi(安森美)"
+		(at 0 10.95 0)
+		(layer "F.Fab")
+		(hide yes)
+		(uuid "f38ec754-59e2-46aa-a04e-3963f7453ed3")
+		(effects
+			(font
+				(size 1 1)
+				(thickness 0.15)
+			)
+		)
+	)
+	(fp_text user "%R"
+		(at 0 0)
+		(layer "F.Fab")
+		(uuid "af422f7d-0640-4cb4-8a3e-baa1203b6ec3")
+		(effects
+			(font
+				(size 1 1)
+				(thickness 0.15)
+			)
+		)
+	)
+	(fp_line
+		(start 0.86 -1.53)
+		(end -0.86 -1.53)
+		(stroke
+			(width 0.1524)
+			(type solid)
+		)
+		(layer "F.SilkS")
+		(uuid "c72fb6d3-1a85-4523-9408-d668ecc76d8c")
+	)
+	(fp_line
+		(start -0.86 -1.53)
+		(end -0.86 -0.49)
+		(stroke
+			(width 0.1524)
+			(type solid)
+		)
+		(layer "F.SilkS")
+		(uuid "d7872e36-d251-424b-966b-ed259fb72a1a")
+	)
+	(fp_line
+		(start 0.86 1.53)
+		(end -0.86 1.53)
+		(stroke
+			(width 0.1524)
+			(type solid)
+		)
+		(layer "F.SilkS")
+		(uuid "22779009-18d2-4b9d-8555-98ace8b1eee2")
+	)
+	(fp_line
+		(start -0.86 1.53)
+		(end -0.86 0.49)
+		(stroke
+			(width 0.1524)
+			(type solid)
+		)
+		(layer "F.SilkS")
+		(uuid "55a65af7-138c-42d8-be3a-8b278976ba7b")
+	)
+	(fp_line
+		(start 0.86 -0.46)
+		(end 0.86 0.46)
+		(stroke
+			(width 0.1524)
+			(type solid)
+		)
+		(layer "F.SilkS")
+		(uuid "6f3ab37f-6f85-43b2-bee3-d088673061d4")
+	)
+	(fp_line
+		(start -1.9 -1.9)
+		(end 1.9 -1.9)
+		(stroke
+			(width 0.05)
+			(type solid)
+		)
+		(layer "F.CrtYd")
+		(uuid "8fda695b-b6e1-428b-a62c-64126111a05e")
+	)
+	(fp_line
+		(start 1.9 -1.9)
+		(end 1.9 1.9)
+		(stroke
+			(width 0.05)
+			(type solid)
+		)
+		(layer "F.CrtYd")
+		(uuid "554c99f8-84c8-4f84-8c70-e9bb5559b907")
+	)
+	(fp_line
+		(start 1.9 1.9)
+		(end -1.9 1.9)
+		(stroke
+			(width 0.05)
+			(type solid)
+		)
+		(layer "F.CrtYd")
+		(uuid "6a7f717b-5762-4c87-91a8-ecf4e2ca6eae")
+	)
+	(fp_line
+		(start -1.9 -1.9)
+		(end -1.9 1.9)
+		(stroke
+			(width 0.05)
+			(type solid)
+		)
+		(layer "F.CrtYd")
+		(uuid "09fb30b2-8406-4fb0-81a2-b70a7267061d")
+	)
+	(pad "1" smd rect
+		(at 1.1 0.95 0)
+		(size 1.04 0.53)
+		(layers "F.Cu" "F.Paste" "F.Mask")
+		(uuid "767ffc50-1335-4ebb-b703-8478a0039673")
+	)
+	(pad "2" smd rect
+		(at 1.1 -0.95 0)
+		(size 1.04 0.53)
+		(layers "F.Cu" "F.Paste" "F.Mask")
+		(uuid "b93f6d35-58e9-4daa-85b3-60c669b46925")
+	)
+	(pad "3" smd rect
+		(at -1.1 0 0)
+		(size 1.04 0.53)
+		(layers "F.Cu" "F.Paste" "F.Mask")
+		(uuid "988bc98b-ca7a-4418-a364-8edaeeb4f9a1")
+	)
+	(fp_circle
+		(center 1.42 1.5)
+		(end 1.45 1.5)
+		(stroke
+			(width 0.06)
+			(type solid)
+		)
+		(layer "F.SilkS")
+		(uuid "9ffc077f-6431-450a-8d6b-f1f5ba2a43c7")
+	)
+	(fp_circle
+		(center 1.65 0.95)
+		(end 1.75 0.95)
+		(stroke
+			(width 0.2)
+			(type solid)
+		)
+		(layer "Cmts.User")
+		(uuid "c7711c31-aa88-4fec-a124-4cd2a2557927")
+	)
+)

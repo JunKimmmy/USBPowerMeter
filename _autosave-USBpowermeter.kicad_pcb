@@ -1282,6 +1282,177 @@
 			)
 		)
 	)
+	(footprint "Capacitor_SMD:C_0402_1005Metric"
+		(layer "F.Cu")
+		(uuid "15f06388-cf33-4df4-9980-7c4d3771f0ec")
+		(at 106.935 84.585)
+		(descr "Capacitor SMD 0402 (1005 Metric), square (rectangular) end terminal, IPC-7351 nominal, (Body size source: IPC-SM-782 page 76, https://www.pcb-3d.com/wordpress/wp-content/uploads/ipc-sm-782a_amendment_1_and_2.pdf)")
+		(tags "capacitor")
+		(property "Reference" "C11"
+			(at 0 -1.16 0)
+			(layer "F.SilkS")
+			(uuid "153f6775-fc6d-4c52-b172-39d5a7a933fc")
+			(effects
+				(font
+					(size 1 1)
+					(thickness 0.15)
+				)
+			)
+		)
+		(property "Value" "100nF"
+			(at 0 1.16 0)
+			(layer "F.Fab")
+			(uuid "93ce72b5-56e0-4e9b-93e3-1fda88e43e1d")
+			(effects
+				(font
+					(size 1 1)
+					(thickness 0.15)
+				)
+			)
+		)
+		(property "Datasheet" ""
+			(at 0 0 0)
+			(layer "F.Fab")
+			(hide yes)
+			(uuid "c37d905b-5b4d-4593-aecc-2e74e062d849")
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Description" ""
+			(at 0 0 0)
+			(layer "F.Fab")
+			(hide yes)
+			(uuid "0c8c75f4-a552-4ad9-9c10-950ef9ab99a8")
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "KiLib_Generator" "SMD_2terminal_chip_molded"
+			(at 0 0 0)
+			(layer "F.SilkS")
+			(hide yes)
+			(uuid "18d55667-4e6b-45e3-8f26-a21a51c1f01c")
+			(effects
+				(font
+					(size 1 1)
+					(thickness 0.15)
+				)
+			)
+		)
+		(property "LCSC Part" "C343042"
+			(at 0 0 0)
+			(unlocked yes)
+			(layer "F.Fab")
+			(hide yes)
+			(uuid "f2a92e9b-74e2-489c-ab15-785b6e7b4a61")
+			(effects
+				(font
+					(size 1 1)
+					(thickness 0.15)
+				)
+			)
+		)
+		(property ki_fp_filters "C_*")
+		(path "/474cfc28-b109-445d-89a1-ede8605e0bb6")
+		(sheetname "/")
+		(sheetfile "USBpowermeter.kicad_sch")
+		(units
+			(unit
+				(name "A")
+				(pins "1" "2")
+			)
+		)
+		(attr smd)
+		(duplicate_pad_numbers_are_jumpers no)
+		(fp_line
+			(start -0.107836 -0.36)
+			(end 0.107836 -0.36)
+			(stroke
+				(width 0.12)
+				(type solid)
+			)
+			(layer "F.SilkS")
+			(uuid "408682c2-e958-4b96-8d7c-0eb1aad29dea")
+		)
+		(fp_line
+			(start -0.107836 0.36)
+			(end 0.107836 0.36)
+			(stroke
+				(width 0.12)
+				(type solid)
+			)
+			(layer "F.SilkS")
+			(uuid "8e53e191-ed88-4949-833b-e5df411abe41")
+		)
+		(fp_rect
+			(start -0.91 -0.46)
+			(end 0.91 0.46)
+			(stroke
+				(width 0.05)
+				(type solid)
+			)
+			(fill no)
+			(layer "F.CrtYd")
+			(uuid "7c5a4f8e-7ce8-46fc-acb7-ca7e5e8bced4")
+		)
+		(fp_rect
+			(start -0.5 -0.25)
+			(end 0.5 0.25)
+			(stroke
+				(width 0.1)
+				(type solid)
+			)
+			(fill no)
+			(layer "F.Fab")
+			(uuid "0a978548-1685-446d-b06a-27f81da50904")
+		)
+		(fp_text user "${REFERENCE}"
+			(at 0 0 0)
+			(layer "F.Fab")
+			(uuid "03c2f433-5e82-43a7-852c-48f955caaf73")
+			(effects
+				(font
+					(size 0.25 0.25)
+					(thickness 0.04)
+				)
+			)
+		)
+		(pad "1" smd roundrect
+			(at -0.48 0)
+			(size 0.56 0.62)
+			(layers "F.Cu" "F.Mask" "F.Paste")
+			(roundrect_rratio 0.25)
+			(net "Net-(U2-IN+)")
+			(pintype "passive")
+			(uuid "06c5eff8-3340-4e2b-b3b4-efaa6fea7b10")
+		)
+		(pad "2" smd roundrect
+			(at 0.48 0)
+			(size 0.56 0.62)
+			(layers "F.Cu" "F.Mask" "F.Paste")
+			(roundrect_rratio 0.25)
+			(net "Net-(U2-IN-)")
+			(pintype "passive")
+			(uuid "c1dabfab-f5a0-4596-b568-43f782c53361")
+		)
+		(embedded_fonts no)
+		(model "${KICAD10_3DMODEL_DIR}/Capacitor_SMD.3dshapes/C_0402_1005Metric.step"
+			(offset
+				(xyz 0 0 0)
+			)
+			(scale
+				(xyz 1 1 1)
+			)
+			(rotate
+				(xyz 0 0 0)
+			)
+		)
+	)
 	(footprint "Library:SW-SMD_2P-TS24CA"
 		(layer "F.Cu")
 		(uuid "1a465916-6362-45af-9a34-ec23b6ea81cd")
@@ -2903,6 +3074,177 @@
 		)
 		(embedded_fonts no)
 	)
+	(footprint "Resistor_SMD:R_0402_1005Metric"
+		(layer "F.Cu")
+		(uuid "2dcb9bae-2253-4e9a-971b-c0b954486115")
+		(at 110.005 81.005)
+		(descr "Resistor SMD 0402 (1005 Metric), square (rectangular) end terminal, IPC-7351 nominal, (Body size source: IPC-SM-782 page 72, https://www.pcb-3d.com/wordpress/wp-content/uploads/ipc-sm-782a_amendment_1_and_2.pdf)")
+		(tags "resistor")
+		(property "Reference" "R4"
+			(at 0 -1.17 0)
+			(layer "F.SilkS")
+			(uuid "9707ccb9-2923-4fa1-b72e-ed5ebb425171")
+			(effects
+				(font
+					(size 1 1)
+					(thickness 0.15)
+				)
+			)
+		)
+		(property "Value" "10R"
+			(at 0 1.17 0)
+			(layer "F.Fab")
+			(uuid "f71d2940-f72a-45a2-8a99-70ca227ff847")
+			(effects
+				(font
+					(size 1 1)
+					(thickness 0.15)
+				)
+			)
+		)
+		(property "Datasheet" ""
+			(at 0 0 0)
+			(layer "F.Fab")
+			(hide yes)
+			(uuid "ca1d23c9-6cab-4fc7-8c41-2f7b9c9acce3")
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Description" ""
+			(at 0 0 0)
+			(layer "F.Fab")
+			(hide yes)
+			(uuid "02b552c6-61f0-4945-819c-f0a57015087c")
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "KiLib_Generator" "SMD_2terminal_chip_molded"
+			(at 0 0 0)
+			(layer "F.SilkS")
+			(hide yes)
+			(uuid "11708c9d-7858-4958-9729-0ce697b17bd2")
+			(effects
+				(font
+					(size 1 1)
+					(thickness 0.15)
+				)
+			)
+		)
+		(property "LCSC Part" "C2906862"
+			(at 0 0 0)
+			(unlocked yes)
+			(layer "F.Fab")
+			(hide yes)
+			(uuid "2f7be936-b119-4931-8a35-6af5d6961227")
+			(effects
+				(font
+					(size 1 1)
+					(thickness 0.15)
+				)
+			)
+		)
+		(property ki_fp_filters "R_*")
+		(path "/5d138560-138d-4e27-bdea-9f85fddb37d0")
+		(sheetname "/")
+		(sheetfile "USBpowermeter.kicad_sch")
+		(units
+			(unit
+				(name "A")
+				(pins "1" "2")
+			)
+		)
+		(attr smd)
+		(duplicate_pad_numbers_are_jumpers no)
+		(fp_line
+			(start -0.153641 -0.38)
+			(end 0.153641 -0.38)
+			(stroke
+				(width 0.12)
+				(type solid)
+			)
+			(layer "F.SilkS")
+			(uuid "ef40082e-2e93-438c-89ec-16ec9f6f248f")
+		)
+		(fp_line
+			(start -0.153641 0.38)
+			(end 0.153641 0.38)
+			(stroke
+				(width 0.12)
+				(type solid)
+			)
+			(layer "F.SilkS")
+			(uuid "ca807898-f40a-49e1-8716-7a6254668037")
+		)
+		(fp_rect
+			(start -0.93 -0.47)
+			(end 0.93 0.47)
+			(stroke
+				(width 0.05)
+				(type solid)
+			)
+			(fill no)
+			(layer "F.CrtYd")
+			(uuid "79d2361b-7086-4cda-8c06-b9e1fb3b95b8")
+		)
+		(fp_rect
+			(start -0.525 -0.27)
+			(end 0.525 0.27)
+			(stroke
+				(width 0.1)
+				(type solid)
+			)
+			(fill no)
+			(layer "F.Fab")
+			(uuid "ced1fc81-72c6-4f6a-88b8-25e37813c81f")
+		)
+		(fp_text user "${REFERENCE}"
+			(at 0 0 0)
+			(layer "F.Fab")
+			(uuid "4f21c775-2760-434c-9d9a-5f229b4019ed")
+			(effects
+				(font
+					(size 0.26 0.26)
+					(thickness 0.04)
+				)
+			)
+		)
+		(pad "1" smd roundrect
+			(at -0.51 0)
+			(size 0.54 0.64)
+			(layers "F.Cu" "F.Mask" "F.Paste")
+			(roundrect_rratio 0.25)
+			(net "Net-(U2-IN+)")
+			(pintype "passive")
+			(uuid "19dde9ac-1455-4063-8931-df2aff375030")
+		)
+		(pad "2" smd roundrect
+			(at 0.51 0)
+			(size 0.54 0.64)
+			(layers "F.Cu" "F.Mask" "F.Paste")
+			(roundrect_rratio 0.25)
+			(net "VBUS_SW")
+			(pintype "passive")
+			(uuid "3e5e9aeb-0ee0-403e-97e9-06295d08a9f2")
+		)
+		(embedded_fonts no)
+		(model "${KICAD10_3DMODEL_DIR}/Resistor_SMD.3dshapes/R_0402_1005Metric.step"
+			(offset
+				(xyz 0 0 0)
+			)
+			(scale
+				(xyz 1 1 1)
+			)
+			(rotate
+				(xyz 0 0 0)
+			)
+		)
+	)
 	(footprint "Capacitor_SMD:C_0402_1005Metric"
 		(layer "F.Cu")
 		(uuid "300f08e1-4984-4977-8f0b-d345354eb9cb")
@@ -4031,6 +4373,177 @@
 		)
 		(embedded_fonts no)
 	)
+	(footprint "Inductor_SMD:L_0603_1608Metric"
+		(layer "F.Cu")
+		(uuid "3905dc07-6a60-4e55-84d2-c3f2fe681f20")
+		(at 110.555 78.755)
+		(descr "Inductor SMD 0603 (1608 Metric), square (rectangular) end terminal, IPC-7351 nominal, (Body size source: http://www.tortai-tech.com/upload/download/2011102023233369053.pdf)")
+		(tags "inductor")
+		(property "Reference" "L2"
+			(at 0 -1.43 0)
+			(layer "F.SilkS")
+			(uuid "750d6702-f667-4973-8d46-8d457ef49b2f")
+			(effects
+				(font
+					(size 1 1)
+					(thickness 0.15)
+				)
+			)
+		)
+		(property "Value" "10uH"
+			(at 0 1.43 0)
+			(layer "F.Fab")
+			(uuid "f55caf0f-abc2-451f-af15-ff55021a95bb")
+			(effects
+				(font
+					(size 1 1)
+					(thickness 0.15)
+				)
+			)
+		)
+		(property "Datasheet" ""
+			(at 0 0 0)
+			(layer "F.Fab")
+			(hide yes)
+			(uuid "e9ab7cb2-9dea-48da-9ef1-75d6b723a054")
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Description" ""
+			(at 0 0 0)
+			(layer "F.Fab")
+			(hide yes)
+			(uuid "cbeacf83-2f6a-48fa-a395-2b8f73e9d912")
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "KiLib_Generator" "SMD_2terminal_chip_molded"
+			(at 0 0 0)
+			(layer "F.SilkS")
+			(hide yes)
+			(uuid "955addfd-6b9a-4077-b4dd-5acc7d1793f2")
+			(effects
+				(font
+					(size 1 1)
+					(thickness 0.15)
+				)
+			)
+		)
+		(property "LCSC Part" "C713281"
+			(at 0 0 0)
+			(unlocked yes)
+			(layer "F.Fab")
+			(hide yes)
+			(uuid "f83ac51c-a1da-482d-80b7-1d93c8ae2ec0")
+			(effects
+				(font
+					(size 1 1)
+					(thickness 0.15)
+				)
+			)
+		)
+		(property ki_fp_filters "Choke_* *Coil* Inductor_* L_*")
+		(path "/d136243a-1232-446a-8ad7-127eac85bb9b")
+		(sheetname "/")
+		(sheetfile "USBpowermeter.kicad_sch")
+		(units
+			(unit
+				(name "A")
+				(pins "1" "2")
+			)
+		)
+		(attr smd)
+		(duplicate_pad_numbers_are_jumpers no)
+		(fp_line
+			(start -0.162779 -0.51)
+			(end 0.162779 -0.51)
+			(stroke
+				(width 0.12)
+				(type solid)
+			)
+			(layer "F.SilkS")
+			(uuid "dc958eaa-4ad9-4ce2-9a77-b6c8b790cf3f")
+		)
+		(fp_line
+			(start -0.162779 0.51)
+			(end 0.162779 0.51)
+			(stroke
+				(width 0.12)
+				(type solid)
+			)
+			(layer "F.SilkS")
+			(uuid "8e526f79-4c93-43a4-8151-b3c7d36c6a22")
+		)
+		(fp_rect
+			(start -1.48 -0.73)
+			(end 1.48 0.73)
+			(stroke
+				(width 0.05)
+				(type solid)
+			)
+			(fill no)
+			(layer "F.CrtYd")
+			(uuid "2911cad1-0cac-4f95-a7f2-4c62d6028723")
+		)
+		(fp_rect
+			(start -0.8 -0.4)
+			(end 0.8 0.4)
+			(stroke
+				(width 0.1)
+				(type solid)
+			)
+			(fill no)
+			(layer "F.Fab")
+			(uuid "202eb22b-967c-46ab-91bb-59b3e254a7e0")
+		)
+		(fp_text user "${REFERENCE}"
+			(at 0 0 0)
+			(layer "F.Fab")
+			(uuid "ea261e1f-15f2-4972-afa7-792b1d02e523")
+			(effects
+				(font
+					(size 0.4 0.4)
+					(thickness 0.06)
+				)
+			)
+		)
+		(pad "1" smd roundrect
+			(at -0.7875 0)
+			(size 0.875 0.95)
+			(layers "F.Cu" "F.Mask" "F.Paste")
+			(roundrect_rratio 0.25)
+			(net "+3.3V")
+			(pintype "passive")
+			(uuid "e63ee4f2-edf7-4b85-86ae-2cf5ba741faa")
+		)
+		(pad "2" smd roundrect
+			(at 0.7875 0)
+			(size 0.875 0.95)
+			(layers "F.Cu" "F.Mask" "F.Paste")
+			(roundrect_rratio 0.25)
+			(net "Net-(U7-SW)")
+			(pintype "passive")
+			(uuid "bacff512-3620-431b-b7b4-4a3e242ffc44")
+		)
+		(embedded_fonts no)
+		(model "${KICAD10_3DMODEL_DIR}/Inductor_SMD.3dshapes/L_0603_1608Metric.step"
+			(offset
+				(xyz 0 0 0)
+			)
+			(scale
+				(xyz 1 1 1)
+			)
+			(rotate
+				(xyz 0 0 0)
+			)
+		)
+	)
 	(footprint "Capacitor_SMD:C_0402_1005Metric"
 		(layer "F.Cu")
 		(uuid "390e28d0-ef5b-4726-90c1-c1b392bec750")
@@ -4449,7 +4962,6 @@
 			)
 		)
 		(property ki_fp_filters "R_*")
-		(path "/a06ae80d-3633-4209-ab96-18f4f2214ba4")
 		(sheetname "/")
 		(sheetfile "USBpowermeter.kicad_sch")
 		(units
@@ -5304,9 +5816,9 @@
 			(at 4.24 0.4)
 			(size 1.68 0.45)
 			(layers "F.Cu" "F.Mask" "F.Paste")
-			(net "/BUZZER_DRIVE")
+			(net "unconnected-(U1-PA5-Pad12)")
 			(pinfunction "PA5_12")
-			(pintype "unspecified")
+			(pintype "unspecified+no_connect")
 			(uuid "59f4e05b-43b1-4e8b-93db-afc9b0d4ed24")
 		)
 		(pad "13" smd oval
@@ -5331,9 +5843,9 @@
 			(at 4.24 -2)
 			(size 1.68 0.45)
 			(layers "F.Cu" "F.Mask" "F.Paste")
-			(net "unconnected-(U1-PB0-Pad15)")
+			(net "/BUZZER_DRIVE")
 			(pinfunction "PB0_15")
-			(pintype "unspecified+no_connect")
+			(pintype "unspecified")
 			(uuid "4cb33ec0-ba0a-42b9-9302-f0c31a7bfe12")
 		)
 		(pad "16" smd oval
@@ -5488,6 +6000,115 @@
 			(pinfunction "PB8_32")
 			(pintype "unspecified+no_connect")
 			(uuid "e7464bc5-5c7e-4c9f-84cb-f1ac8c879ca8")
+		)
+		(embedded_fonts no)
+	)
+	(footprint "TestPoint:TestPoint_Pad_D1.0mm"
+		(layer "F.Cu")
+		(uuid "4510a4ba-06c4-48e4-8878-99025b420190")
+		(at 107.025 82.075)
+		(descr "SMD pad as test Point, diameter 1.0mm")
+		(tags "test point SMD pad")
+		(property "Reference" "TP28"
+			(at 0 -1.448 0)
+			(layer "F.SilkS")
+			(uuid "9ae24e26-e666-4ce0-bd27-e1d4664a2ece")
+			(effects
+				(font
+					(size 1 1)
+					(thickness 0.15)
+				)
+			)
+		)
+		(property "Value" "TP4"
+			(at 0 1.55 0)
+			(layer "F.Fab")
+			(uuid "11d564da-7324-4f27-8422-239e20ad7127")
+			(effects
+				(font
+					(size 1 1)
+					(thickness 0.15)
+				)
+			)
+		)
+		(property "Datasheet" ""
+			(at 0 0 0)
+			(unlocked yes)
+			(layer "F.Fab")
+			(hide yes)
+			(uuid "f9a0ddac-de0e-4067-8d6e-9992726061d9")
+			(effects
+				(font
+					(size 1.27 1.27)
+					(thickness 0.15)
+				)
+			)
+		)
+		(property "Description" ""
+			(at 0 0 0)
+			(unlocked yes)
+			(layer "F.Fab")
+			(hide yes)
+			(uuid "fde0c8e6-d118-43d4-b052-e1381cda806f")
+			(effects
+				(font
+					(size 1.27 1.27)
+					(thickness 0.15)
+				)
+			)
+		)
+		(property ki_fp_filters "Pin* Test*")
+		(path "/d6cb542f-e70d-4a08-9445-9c194e44bce2")
+		(sheetname "/")
+		(sheetfile "USBpowermeter.kicad_sch")
+		(units
+			(unit
+				(name "A")
+				(pins "1")
+			)
+		)
+		(duplicate_pad_numbers_are_jumpers no)
+		(fp_circle
+			(center 0 0)
+			(end 0 0.7)
+			(stroke
+				(width 0.12)
+				(type solid)
+			)
+			(fill no)
+			(layer "F.SilkS")
+			(uuid "6e4f543e-2edc-426a-a36c-0504c53c9c0a")
+		)
+		(fp_circle
+			(center 0 0)
+			(end 1 0)
+			(stroke
+				(width 0.05)
+				(type solid)
+			)
+			(fill no)
+			(layer "F.CrtYd")
+			(uuid "a3a0495e-7923-42ad-9f58-f6bb31b584c1")
+		)
+		(fp_text user "${REFERENCE}"
+			(at 0 -1.45 0)
+			(layer "F.Fab")
+			(uuid "97e8e449-10d7-4401-a5fc-be149d636e3e")
+			(effects
+				(font
+					(size 1 1)
+					(thickness 0.15)
+				)
+			)
+		)
+		(pad "1" smd circle
+			(at 0 0)
+			(size 1 1)
+			(layers "F.Cu" "F.Mask")
+			(net "/I2C_SDA")
+			(pinfunction "1_1")
+			(pintype "passive")
+			(uuid "7e2fa817-015e-4c80-972c-f7559bf25f28")
 		)
 		(embedded_fonts no)
 	)
@@ -6968,6 +7589,115 @@
 			)
 		)
 	)
+	(footprint "TestPoint:TestPoint_Pad_D1.0mm"
+		(layer "F.Cu")
+		(uuid "6000106b-3af9-4b90-8a8f-9df4baa28536")
+		(at 108.075 104.875 90)
+		(descr "SMD pad as test Point, diameter 1.0mm")
+		(tags "test point SMD pad")
+		(property "Reference" "TP24"
+			(at 0 -1.448 90)
+			(layer "F.SilkS")
+			(uuid "d4fa1412-7749-4fb2-969c-204c412e3eef")
+			(effects
+				(font
+					(size 1 1)
+					(thickness 0.15)
+				)
+			)
+		)
+		(property "Value" "TP4"
+			(at 0 1.55 90)
+			(layer "F.Fab")
+			(uuid "c673a27b-a935-4cd6-91b9-444b0a304907")
+			(effects
+				(font
+					(size 1 1)
+					(thickness 0.15)
+				)
+			)
+		)
+		(property "Datasheet" ""
+			(at 0 0 90)
+			(unlocked yes)
+			(layer "F.Fab")
+			(hide yes)
+			(uuid "32b9749e-82c8-4b04-b192-9ed3d275d456")
+			(effects
+				(font
+					(size 1.27 1.27)
+					(thickness 0.15)
+				)
+			)
+		)
+		(property "Description" ""
+			(at 0 0 90)
+			(unlocked yes)
+			(layer "F.Fab")
+			(hide yes)
+			(uuid "5e209681-749b-4a0b-8da9-bc276dae0922")
+			(effects
+				(font
+					(size 1.27 1.27)
+					(thickness 0.15)
+				)
+			)
+		)
+		(property ki_fp_filters "Pin* Test*")
+		(path "/23d30a9c-7a2e-4931-b260-80a67fa0812b")
+		(sheetname "/")
+		(sheetfile "USBpowermeter.kicad_sch")
+		(units
+			(unit
+				(name "A")
+				(pins "1")
+			)
+		)
+		(duplicate_pad_numbers_are_jumpers no)
+		(fp_circle
+			(center 0 0)
+			(end 0 0.7)
+			(stroke
+				(width 0.12)
+				(type solid)
+			)
+			(fill no)
+			(layer "F.SilkS")
+			(uuid "8d025e0a-be43-488a-a97d-c6889bb6cffb")
+		)
+		(fp_circle
+			(center 0 0)
+			(end 1 0)
+			(stroke
+				(width 0.05)
+				(type solid)
+			)
+			(fill no)
+			(layer "F.CrtYd")
+			(uuid "a8cbb3e9-3dad-4c06-95f5-3d53f80e044a")
+		)
+		(fp_text user "${REFERENCE}"
+			(at 0 -1.45 90)
+			(layer "F.Fab")
+			(uuid "c0e788a9-0726-47f0-822a-197a2f68c75f")
+			(effects
+				(font
+					(size 1 1)
+					(thickness 0.15)
+				)
+			)
+		)
+		(pad "1" smd circle
+			(at 0 0 90)
+			(size 1 1)
+			(layers "F.Cu" "F.Mask")
+			(net "Net-(J3-VDDB)")
+			(pinfunction "1_1")
+			(pintype "passive")
+			(uuid "625abdf6-8799-41f4-b692-db4402a64933")
+		)
+		(embedded_fonts no)
+	)
 	(footprint "Capacitor_SMD:C_0603_1608Metric"
 		(layer "F.Cu")
 		(uuid "63053318-e960-4d6b-9fdf-d059e9a4fc89")
@@ -7886,7 +8616,7 @@
 				)
 			)
 		)
-		(attr smd dnp)
+		(attr smd)
 		(duplicate_pad_numbers_are_jumpers no)
 		(fp_poly
 			(pts
@@ -8524,6 +9254,177 @@
 			)
 		)
 	)
+	(footprint "Resistor_SMD:R_0402_1005Metric"
+		(layer "F.Cu")
+		(uuid "72f4717b-4dc3-4b94-9ae6-8d0eabf37186")
+		(at 110.005 82.995)
+		(descr "Resistor SMD 0402 (1005 Metric), square (rectangular) end terminal, IPC-7351 nominal, (Body size source: IPC-SM-782 page 72, https://www.pcb-3d.com/wordpress/wp-content/uploads/ipc-sm-782a_amendment_1_and_2.pdf)")
+		(tags "resistor")
+		(property "Reference" "R5"
+			(at 0 -1.17 0)
+			(layer "F.SilkS")
+			(uuid "bfd19e15-9191-4d06-ace3-cd132660b143")
+			(effects
+				(font
+					(size 1 1)
+					(thickness 0.15)
+				)
+			)
+		)
+		(property "Value" "10R"
+			(at 0 1.17 0)
+			(layer "F.Fab")
+			(uuid "7273b775-cf8b-4d6c-a07a-db0ede939d38")
+			(effects
+				(font
+					(size 1 1)
+					(thickness 0.15)
+				)
+			)
+		)
+		(property "Datasheet" ""
+			(at 0 0 0)
+			(layer "F.Fab")
+			(hide yes)
+			(uuid "4b41c42a-4dd5-45db-9554-d903c5e86d7c")
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Description" ""
+			(at 0 0 0)
+			(layer "F.Fab")
+			(hide yes)
+			(uuid "9cbbfae0-162c-488f-921b-d0e705f8adbb")
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "KiLib_Generator" "SMD_2terminal_chip_molded"
+			(at 0 0 0)
+			(layer "F.SilkS")
+			(hide yes)
+			(uuid "7f10af09-127b-4ee4-8059-4ee46765dc51")
+			(effects
+				(font
+					(size 1 1)
+					(thickness 0.15)
+				)
+			)
+		)
+		(property "LCSC Part" "C2906862"
+			(at 0 0 0)
+			(unlocked yes)
+			(layer "F.Fab")
+			(hide yes)
+			(uuid "8140b19f-bd3d-4d3a-b406-8049c487fee1")
+			(effects
+				(font
+					(size 1 1)
+					(thickness 0.15)
+				)
+			)
+		)
+		(property ki_fp_filters "R_*")
+		(path "/2396cb3e-b89d-4c4e-926e-3c4a4c4a362b")
+		(sheetname "/")
+		(sheetfile "USBpowermeter.kicad_sch")
+		(units
+			(unit
+				(name "A")
+				(pins "1" "2")
+			)
+		)
+		(attr smd)
+		(duplicate_pad_numbers_are_jumpers no)
+		(fp_line
+			(start -0.153641 -0.38)
+			(end 0.153641 -0.38)
+			(stroke
+				(width 0.12)
+				(type solid)
+			)
+			(layer "F.SilkS")
+			(uuid "e5b00c5c-5514-4d69-9c4c-d1e785a923ce")
+		)
+		(fp_line
+			(start -0.153641 0.38)
+			(end 0.153641 0.38)
+			(stroke
+				(width 0.12)
+				(type solid)
+			)
+			(layer "F.SilkS")
+			(uuid "c0271760-b18f-4d66-a293-52a51d33677d")
+		)
+		(fp_rect
+			(start -0.93 -0.47)
+			(end 0.93 0.47)
+			(stroke
+				(width 0.05)
+				(type solid)
+			)
+			(fill no)
+			(layer "F.CrtYd")
+			(uuid "b1dfb1f4-fb67-4b09-9177-20319da3d3d4")
+		)
+		(fp_rect
+			(start -0.525 -0.27)
+			(end 0.525 0.27)
+			(stroke
+				(width 0.1)
+				(type solid)
+			)
+			(fill no)
+			(layer "F.Fab")
+			(uuid "0742c09a-90d0-4d8a-904c-d6281fc10d35")
+		)
+		(fp_text user "${REFERENCE}"
+			(at 0 0 0)
+			(layer "F.Fab")
+			(uuid "f3eec951-e236-4860-9e2f-0660bc7e85ca")
+			(effects
+				(font
+					(size 0.26 0.26)
+					(thickness 0.04)
+				)
+			)
+		)
+		(pad "1" smd roundrect
+			(at -0.51 0)
+			(size 0.54 0.64)
+			(layers "F.Cu" "F.Mask" "F.Paste")
+			(roundrect_rratio 0.25)
+			(net "Net-(U2-IN-)")
+			(pintype "passive")
+			(uuid "d0179fd2-553c-41fa-8c9c-227f3be61baa")
+		)
+		(pad "2" smd roundrect
+			(at 0.51 0)
+			(size 0.54 0.64)
+			(layers "F.Cu" "F.Mask" "F.Paste")
+			(roundrect_rratio 0.25)
+			(net "VBUS_OUT")
+			(pintype "passive")
+			(uuid "b640105a-3283-4c98-94f6-d60654ef2ed3")
+		)
+		(embedded_fonts no)
+		(model "${KICAD10_3DMODEL_DIR}/Resistor_SMD.3dshapes/R_0402_1005Metric.step"
+			(offset
+				(xyz 0 0 0)
+			)
+			(scale
+				(xyz 1 1 1)
+			)
+			(rotate
+				(xyz 0 0 0)
+			)
+		)
+	)
 	(footprint "Capacitor_SMD:C_0402_1005Metric"
 		(layer "F.Cu")
 		(uuid "754858df-cf29-4b39-b397-7ae2d1c910f8")
@@ -9037,6 +9938,224 @@
 			)
 		)
 	)
+	(footprint "TestPoint:TestPoint_Pad_D1.0mm"
+		(layer "F.Cu")
+		(uuid "7c8e67c8-54a7-434b-95b2-7bbcb6611e81")
+		(at 105.025 110.975 90)
+		(descr "SMD pad as test Point, diameter 1.0mm")
+		(tags "test point SMD pad")
+		(property "Reference" "TP18"
+			(at 0 -1.448 90)
+			(layer "F.SilkS")
+			(uuid "b0f77a85-369e-4403-b272-0537337ea3a6")
+			(effects
+				(font
+					(size 1 1)
+					(thickness 0.15)
+				)
+			)
+		)
+		(property "Value" "TP4"
+			(at 0 1.55 90)
+			(layer "F.Fab")
+			(uuid "3193f7f7-e491-4563-9a20-274cf498d621")
+			(effects
+				(font
+					(size 1 1)
+					(thickness 0.15)
+				)
+			)
+		)
+		(property "Datasheet" ""
+			(at 0 0 90)
+			(unlocked yes)
+			(layer "F.Fab")
+			(hide yes)
+			(uuid "3568877c-c9dd-41e2-8463-b8b026578000")
+			(effects
+				(font
+					(size 1.27 1.27)
+					(thickness 0.15)
+				)
+			)
+		)
+		(property "Description" ""
+			(at 0 0 90)
+			(unlocked yes)
+			(layer "F.Fab")
+			(hide yes)
+			(uuid "b4d60af5-6b47-4946-b7b1-02ea33003781")
+			(effects
+				(font
+					(size 1.27 1.27)
+					(thickness 0.15)
+				)
+			)
+		)
+		(property ki_fp_filters "Pin* Test*")
+		(path "/8872b1d4-fda0-4672-8ca2-8a88b365885c")
+		(sheetname "/")
+		(sheetfile "USBpowermeter.kicad_sch")
+		(units
+			(unit
+				(name "A")
+				(pins "1")
+			)
+		)
+		(duplicate_pad_numbers_are_jumpers no)
+		(fp_circle
+			(center 0 0)
+			(end 0 0.7)
+			(stroke
+				(width 0.12)
+				(type solid)
+			)
+			(fill no)
+			(layer "F.SilkS")
+			(uuid "41684dc9-b92a-480e-a849-a527ffc104bb")
+		)
+		(fp_circle
+			(center 0 0)
+			(end 1 0)
+			(stroke
+				(width 0.05)
+				(type solid)
+			)
+			(fill no)
+			(layer "F.CrtYd")
+			(uuid "8c8bd502-9b02-4019-856c-bbc428cd173c")
+		)
+		(fp_text user "${REFERENCE}"
+			(at 0 -1.45 90)
+			(layer "F.Fab")
+			(uuid "3d3409d1-5e61-48de-8dff-02149c8fd043")
+			(effects
+				(font
+					(size 1 1)
+					(thickness 0.15)
+				)
+			)
+		)
+		(pad "1" smd circle
+			(at 0 0 90)
+			(size 1 1)
+			(layers "F.Cu" "F.Mask")
+			(net "VBUS_IN")
+			(pinfunction "1_1")
+			(pintype "passive")
+			(uuid "b51e1b45-7a29-4f2e-8fd1-56843e61eddc")
+		)
+		(embedded_fonts no)
+	)
+	(footprint "TestPoint:TestPoint_Pad_D1.0mm"
+		(layer "F.Cu")
+		(uuid "8210d43b-129e-4415-b60c-20e0825eac72")
+		(at 107.025 79.025)
+		(descr "SMD pad as test Point, diameter 1.0mm")
+		(tags "test point SMD pad")
+		(property "Reference" "TP27"
+			(at 0 -1.448 0)
+			(layer "F.SilkS")
+			(uuid "4c9e4869-4a93-4130-8c1f-2b17689e00ff")
+			(effects
+				(font
+					(size 1 1)
+					(thickness 0.15)
+				)
+			)
+		)
+		(property "Value" "TP4"
+			(at 0 1.55 0)
+			(layer "F.Fab")
+			(uuid "fb24f0ec-7a3c-4252-b4f9-eb25f6743e29")
+			(effects
+				(font
+					(size 1 1)
+					(thickness 0.15)
+				)
+			)
+		)
+		(property "Datasheet" ""
+			(at 0 0 0)
+			(unlocked yes)
+			(layer "F.Fab")
+			(hide yes)
+			(uuid "be82fb8e-c8eb-45a5-af51-a101aa8edecb")
+			(effects
+				(font
+					(size 1.27 1.27)
+					(thickness 0.15)
+				)
+			)
+		)
+		(property "Description" ""
+			(at 0 0 0)
+			(unlocked yes)
+			(layer "F.Fab")
+			(hide yes)
+			(uuid "64ff8707-5509-4d83-9832-6e09738f4ffd")
+			(effects
+				(font
+					(size 1.27 1.27)
+					(thickness 0.15)
+				)
+			)
+		)
+		(property ki_fp_filters "Pin* Test*")
+		(path "/f6de62f7-28c3-4407-93b0-b42ceb0e4531")
+		(sheetname "/")
+		(sheetfile "USBpowermeter.kicad_sch")
+		(units
+			(unit
+				(name "A")
+				(pins "1")
+			)
+		)
+		(duplicate_pad_numbers_are_jumpers no)
+		(fp_circle
+			(center 0 0)
+			(end 0 0.7)
+			(stroke
+				(width 0.12)
+				(type solid)
+			)
+			(fill no)
+			(layer "F.SilkS")
+			(uuid "31fe0262-eefc-4f15-a077-52aab9fa4218")
+		)
+		(fp_circle
+			(center 0 0)
+			(end 1 0)
+			(stroke
+				(width 0.05)
+				(type solid)
+			)
+			(fill no)
+			(layer "F.CrtYd")
+			(uuid "691df5cd-d542-4440-89ca-14a22284cb6d")
+		)
+		(fp_text user "${REFERENCE}"
+			(at 0 -1.45 0)
+			(layer "F.Fab")
+			(uuid "c2d3a60c-b75e-4667-9880-bea655f0dad1")
+			(effects
+				(font
+					(size 1 1)
+					(thickness 0.15)
+				)
+			)
+		)
+		(pad "1" smd circle
+			(at 0 0)
+			(size 1 1)
+			(layers "F.Cu" "F.Mask")
+			(net "/I2C_SCL")
+			(pinfunction "1_1")
+			(pintype "passive")
+			(uuid "e8eaa584-34e8-4658-a734-44fb3894a8b6")
+		)
+		(embedded_fonts no)
+	)
 	(footprint "Resistor_SMD:R_1206_3216Metric"
 		(layer "F.Cu")
 		(uuid "8568165b-e943-45d2-904c-315adc1ad5d1")
@@ -9208,6 +10327,223 @@
 			)
 		)
 	)
+	(footprint "TestPoint:TestPoint_Pad_D1.0mm"
+		(layer "F.Cu")
+		(uuid "8fc9e11a-3e79-4a11-aca0-c109ec87d2d4")
+		(at 108.075 110.975 90)
+		(descr "SMD pad as test Point, diameter 1.0mm")
+		(tags "test point SMD pad")
+		(property "Reference" "TP20"
+			(at 0 -1.448 90)
+			(layer "F.SilkS")
+			(uuid "48184ec0-6722-482a-a023-3340aea151cb")
+			(effects
+				(font
+					(size 1 1)
+					(thickness 0.15)
+				)
+			)
+		)
+		(property "Value" "TP4"
+			(at 0 1.55 90)
+			(layer "F.Fab")
+			(uuid "dfafada1-8417-4200-bed1-3cbdaa4d793f")
+			(effects
+				(font
+					(size 1 1)
+					(thickness 0.15)
+				)
+			)
+		)
+		(property "Datasheet" ""
+			(at 0 0 90)
+			(unlocked yes)
+			(layer "F.Fab")
+			(hide yes)
+			(uuid "dec94ecc-8b05-4309-b980-c5e44621b34b")
+			(effects
+				(font
+					(size 1.27 1.27)
+					(thickness 0.15)
+				)
+			)
+		)
+		(property "Description" ""
+			(at 0 0 90)
+			(unlocked yes)
+			(layer "F.Fab")
+			(hide yes)
+			(uuid "b148494a-dfd2-4284-b844-187739b83b9d")
+			(effects
+				(font
+					(size 1.27 1.27)
+					(thickness 0.15)
+				)
+			)
+		)
+		(property ki_fp_filters "Pin* Test*")
+		(path "/136f8d98-ec97-4c93-b443-0286998706d3")
+		(sheetname "/")
+		(sheetfile "USBpowermeter.kicad_sch")
+		(units
+			(unit
+				(name "A")
+				(pins "1")
+			)
+		)
+		(duplicate_pad_numbers_are_jumpers no)
+		(fp_circle
+			(center 0 0)
+			(end 0 0.7)
+			(stroke
+				(width 0.12)
+				(type solid)
+			)
+			(fill no)
+			(layer "F.SilkS")
+			(uuid "5d8a42a8-4695-48cb-a1da-64ebddde5415")
+		)
+		(fp_circle
+			(center 0 0)
+			(end 1 0)
+			(stroke
+				(width 0.05)
+				(type solid)
+			)
+			(fill no)
+			(layer "F.CrtYd")
+			(uuid "5ecbd7c6-b1ed-4d40-a532-ba432cb4389d")
+		)
+		(fp_text user "${REFERENCE}"
+			(at 0 -1.45 90)
+			(layer "F.Fab")
+			(uuid "304dbc36-0017-4500-b64e-9ab4e203c072")
+			(effects
+				(font
+					(size 1 1)
+					(thickness 0.15)
+				)
+			)
+		)
+		(pad "1" smd circle
+			(at 0 0 90)
+			(size 1 1)
+			(layers "F.Cu" "F.Mask")
+			(net "VBUS_SW")
+			(pinfunction "1_1")
+			(pintype "passive")
+			(uuid "f8264c56-7fc0-4ec4-a7af-d00d2db4420c")
+		)
+		(embedded_fonts no)
+	)
+	(footprint "TestPoint:TestPoint_Pad_D1.0mm"
+		(layer "F.Cu")
+		(uuid "9b5f6ba9-aa55-4b3a-bbe7-60f05ff78075")
+		(at 105.025 101.825 90)
+		(descr "SMD pad as test Point, diameter 1.0mm")
+		(tags "test point SMD pad")
+		(property "Reference" "TP25"
+			(at 0 -1.448 90)
+			(layer "F.SilkS")
+			(uuid "db582f92-01ba-42f6-81d9-92581351fbcf")
+			(effects
+				(font
+					(size 1 1)
+					(thickness 0.15)
+				)
+			)
+		)
+		(property "Value" "TP4"
+			(at 0 1.55 90)
+			(layer "F.Fab")
+			(uuid "4c3694fd-98d9-4409-a19d-693eaea84757")
+			(effects
+				(font
+					(size 1 1)
+					(thickness 0.15)
+				)
+			)
+		)
+		(property "Datasheet" ""
+			(at 0 0 90)
+			(unlocked yes)
+			(layer "F.Fab")
+			(hide yes)
+			(uuid "0584ccb7-9707-4461-8e08-1689b41c9cf3")
+			(effects
+				(font
+					(size 1.27 1.27)
+					(thickness 0.15)
+				)
+			)
+		)
+		(property "Description" ""
+			(at 0 0 90)
+			(unlocked yes)
+			(layer "F.Fab")
+			(hide yes)
+			(uuid "a20fb039-7bf0-430b-907c-e57acffac46e")
+			(effects
+				(font
+					(size 1.27 1.27)
+					(thickness 0.15)
+				)
+			)
+		)
+		(property ki_fp_filters "Pin* Test*")
+		(sheetname "/")
+		(sheetfile "USBpowermeter.kicad_sch")
+		(units
+			(unit
+				(name "A")
+				(pins "1")
+			)
+		)
+		(duplicate_pad_numbers_are_jumpers no)
+		(fp_circle
+			(center 0 0)
+			(end 0 0.7)
+			(stroke
+				(width 0.12)
+				(type solid)
+			)
+			(fill no)
+			(layer "F.SilkS")
+			(uuid "fd268f17-31de-4e66-bb5f-7066c122ea90")
+		)
+		(fp_circle
+			(center 0 0)
+			(end 1 0)
+			(stroke
+				(width 0.05)
+				(type solid)
+			)
+			(fill no)
+			(layer "F.CrtYd")
+			(uuid "89586074-d221-4bb0-9165-a5edf7d8dfe4")
+		)
+		(fp_text user "${REFERENCE}"
+			(at 0 -1.45 90)
+			(layer "F.Fab")
+			(uuid "c3b9b19a-3bcf-48b6-a4bd-3463ce2f1d56")
+			(effects
+				(font
+					(size 1 1)
+					(thickness 0.15)
+				)
+			)
+		)
+		(pad "1" smd circle
+			(at 0 0 90)
+			(size 1 1)
+			(layers "F.Cu" "F.Mask")
+			(net "/I2C_SCL")
+			(pinfunction "1_1")
+			(pintype "passive")
+			(uuid "cf7b38ad-94c6-4167-8103-e473372b6647")
+		)
+		(embedded_fonts no)
+	)
 	(footprint "Resistor_SMD:R_0402_1005Metric"
 		(layer "F.Cu")
 		(uuid "9bfc6b22-0266-4c63-b8a6-f0e94c511c03")
@@ -9284,7 +10620,6 @@
 			)
 		)
 		(property ki_fp_filters "R_*")
-		(path "/e4d84fbc-a300-4dbd-ac9c-3b029101b657")
 		(sheetname "/")
 		(sheetfile "USBpowermeter.kicad_sch")
 		(units
@@ -9887,7 +11222,7 @@
 			(at 0.04 -0.9 180)
 			(size 0.25 0.6)
 			(layers "F.Cu" "F.Mask" "F.Paste")
-			(net "/BUCK_EN")
+			(net "VBUS_SW")
 			(pinfunction "EN_9")
 			(pintype "unspecified")
 			(uuid "db49e8da-1d56-4c16-96e3-4222cccd5772")
@@ -11207,7 +12542,7 @@
 			(at 0 -2.35)
 			(size 0.3 1.3)
 			(layers "F.Cu" "F.Mask" "F.Paste")
-			(net "VBUS_OUT")
+			(net "Net-(U2-IN-)")
 			(pinfunction "VBUS_8")
 			(pintype "unspecified")
 			(uuid "03b80e54-c072-42cf-ba6c-a7b0c0c7e615")
@@ -11216,7 +12551,7 @@
 			(at -0.5 -2.35)
 			(size 0.3 1.3)
 			(layers "F.Cu" "F.Mask" "F.Paste")
-			(net "VBUS_OUT")
+			(net "Net-(U2-IN-)")
 			(pinfunction "IN-_9")
 			(pintype "unspecified")
 			(uuid "733c2ad1-45dd-47d5-8288-94c0c705f778")
@@ -11225,10 +12560,119 @@
 			(at -1 -2.35)
 			(size 0.3 1.3)
 			(layers "F.Cu" "F.Mask" "F.Paste")
-			(net "VBUS_SW")
+			(net "Net-(U2-IN+)")
 			(pinfunction "IN+_10")
 			(pintype "unspecified")
 			(uuid "bf5153cf-e910-4170-b05e-91d311c88bf1")
+		)
+		(embedded_fonts no)
+	)
+	(footprint "TestPoint:TestPoint_Pad_D1.0mm"
+		(layer "F.Cu")
+		(uuid "b9d3364d-97e0-4c81-a84e-293027198b70")
+		(at 108.075 107.925 90)
+		(descr "SMD pad as test Point, diameter 1.0mm")
+		(tags "test point SMD pad")
+		(property "Reference" "TP22"
+			(at 0 -1.448 90)
+			(layer "F.SilkS")
+			(uuid "048f15d8-7b94-400b-a85a-9d461ac2e515")
+			(effects
+				(font
+					(size 1 1)
+					(thickness 0.15)
+				)
+			)
+		)
+		(property "Value" "TP4"
+			(at 0 1.55 90)
+			(layer "F.Fab")
+			(uuid "5af73199-e966-44c8-92b1-cc6eea77aa95")
+			(effects
+				(font
+					(size 1 1)
+					(thickness 0.15)
+				)
+			)
+		)
+		(property "Datasheet" ""
+			(at 0 0 90)
+			(unlocked yes)
+			(layer "F.Fab")
+			(hide yes)
+			(uuid "d27d73d6-0fed-44e3-b27d-2fa71572e410")
+			(effects
+				(font
+					(size 1.27 1.27)
+					(thickness 0.15)
+				)
+			)
+		)
+		(property "Description" ""
+			(at 0 0 90)
+			(unlocked yes)
+			(layer "F.Fab")
+			(hide yes)
+			(uuid "bdabcb38-5f7f-41cf-bcc1-89401ff0437b")
+			(effects
+				(font
+					(size 1.27 1.27)
+					(thickness 0.15)
+				)
+			)
+		)
+		(property ki_fp_filters "Pin* Test*")
+		(path "/7ecad8dc-6dde-45f9-a42e-b6306ea25d48")
+		(sheetname "/")
+		(sheetfile "USBpowermeter.kicad_sch")
+		(units
+			(unit
+				(name "A")
+				(pins "1")
+			)
+		)
+		(duplicate_pad_numbers_are_jumpers no)
+		(fp_circle
+			(center 0 0)
+			(end 0 0.7)
+			(stroke
+				(width 0.12)
+				(type solid)
+			)
+			(fill no)
+			(layer "F.SilkS")
+			(uuid "372f6689-82df-41c4-b181-93a50cc93cc4")
+		)
+		(fp_circle
+			(center 0 0)
+			(end 1 0)
+			(stroke
+				(width 0.05)
+				(type solid)
+			)
+			(fill no)
+			(layer "F.CrtYd")
+			(uuid "b4e058aa-2b46-4c90-bf5d-2832f83cf649")
+		)
+		(fp_text user "${REFERENCE}"
+			(at 0 -1.45 90)
+			(layer "F.Fab")
+			(uuid "e895c3a5-5fcb-4eed-a436-d8cbce9a7622")
+			(effects
+				(font
+					(size 1 1)
+					(thickness 0.15)
+				)
+			)
+		)
+		(pad "1" smd circle
+			(at 0 0 90)
+			(size 1 1)
+			(layers "F.Cu" "F.Mask")
+			(net "+3.3V")
+			(pinfunction "1_1")
+			(pintype "passive")
+			(uuid "afda02c3-975a-44b7-aad3-f38351e3ce0b")
 		)
 		(embedded_fonts no)
 	)
@@ -11574,6 +13018,177 @@
 			)
 		)
 	)
+	(footprint "Resistor_SMD:R_0402_1005Metric"
+		(layer "F.Cu")
+		(uuid "c7a34a91-3c07-4c3d-85ba-6d38beaab968")
+		(at 110.595 111.045 90)
+		(descr "Resistor SMD 0402 (1005 Metric), square (rectangular) end terminal, IPC-7351 nominal, (Body size source: IPC-SM-782 page 72, https://www.pcb-3d.com/wordpress/wp-content/uploads/ipc-sm-782a_amendment_1_and_2.pdf)")
+		(tags "resistor")
+		(property "Reference" "R26"
+			(at 0 -1.17 90)
+			(layer "F.SilkS")
+			(uuid "d3032e11-be1c-41f1-afb4-e8be0e7cd063")
+			(effects
+				(font
+					(size 1 1)
+					(thickness 0.15)
+				)
+			)
+		)
+		(property "Value" "10kΩ"
+			(at 0 1.17 90)
+			(layer "F.Fab")
+			(uuid "765813de-fb09-4d54-aa05-b2a09e1cd1e7")
+			(effects
+				(font
+					(size 1 1)
+					(thickness 0.15)
+				)
+			)
+		)
+		(property "Datasheet" ""
+			(at 0 0 90)
+			(layer "F.Fab")
+			(hide yes)
+			(uuid "05f4cf86-09a2-45ba-ad1e-d709cc43e2a7")
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Description" ""
+			(at 0 0 90)
+			(layer "F.Fab")
+			(hide yes)
+			(uuid "a69fee15-0797-49ee-a507-0414998461d1")
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "KiLib_Generator" "SMD_2terminal_chip_molded"
+			(at 0 0 90)
+			(layer "F.SilkS")
+			(hide yes)
+			(uuid "fa7d3439-9c90-49c2-932b-a6e863e62a30")
+			(effects
+				(font
+					(size 1 1)
+					(thickness 0.15)
+				)
+			)
+		)
+		(property "LCSC Part" "C2906861"
+			(at 0 0 90)
+			(unlocked yes)
+			(layer "F.Fab")
+			(hide yes)
+			(uuid "6605215f-b73d-4a90-9184-11e71380e774")
+			(effects
+				(font
+					(size 1 1)
+					(thickness 0.15)
+				)
+			)
+		)
+		(property ki_fp_filters "R_*")
+		(path "/3560eadb-bb81-4fe6-bb64-eb7d69f86ee0")
+		(sheetname "/")
+		(sheetfile "USBpowermeter.kicad_sch")
+		(units
+			(unit
+				(name "A")
+				(pins "1" "2")
+			)
+		)
+		(attr smd)
+		(duplicate_pad_numbers_are_jumpers no)
+		(fp_line
+			(start -0.153641 -0.38)
+			(end 0.153641 -0.38)
+			(stroke
+				(width 0.12)
+				(type solid)
+			)
+			(layer "F.SilkS")
+			(uuid "e369433e-f528-4026-84de-c81fe11af6af")
+		)
+		(fp_line
+			(start -0.153641 0.38)
+			(end 0.153641 0.38)
+			(stroke
+				(width 0.12)
+				(type solid)
+			)
+			(layer "F.SilkS")
+			(uuid "2db260b1-3720-46d3-9f99-3708adb8790a")
+		)
+		(fp_rect
+			(start -0.93 -0.47)
+			(end 0.93 0.47)
+			(stroke
+				(width 0.05)
+				(type solid)
+			)
+			(fill no)
+			(layer "F.CrtYd")
+			(uuid "4134c49e-ae09-4694-a14c-e3552dbb7252")
+		)
+		(fp_rect
+			(start -0.525 -0.27)
+			(end 0.525 0.27)
+			(stroke
+				(width 0.1)
+				(type solid)
+			)
+			(fill no)
+			(layer "F.Fab")
+			(uuid "a05ec3e8-5816-4d94-a1e5-f8837da33fc6")
+		)
+		(fp_text user "${REFERENCE}"
+			(at 0 0 90)
+			(layer "F.Fab")
+			(uuid "6508159e-a495-4242-b137-34b0d0c48302")
+			(effects
+				(font
+					(size 0.26 0.26)
+					(thickness 0.04)
+				)
+			)
+		)
+		(pad "1" smd roundrect
+			(at -0.51 0 90)
+			(size 0.54 0.64)
+			(layers "F.Cu" "F.Mask" "F.Paste")
+			(roundrect_rratio 0.25)
+			(net "/SWCLK")
+			(pintype "passive")
+			(uuid "78745829-bd5e-44ea-8773-3e5536cce5a2")
+		)
+		(pad "2" smd roundrect
+			(at 0.51 0 90)
+			(size 0.54 0.64)
+			(layers "F.Cu" "F.Mask" "F.Paste")
+			(roundrect_rratio 0.25)
+			(net "GND")
+			(pintype "passive")
+			(uuid "16295a65-1079-4f54-a3df-fce4be2f52a4")
+		)
+		(embedded_fonts no)
+		(model "${KICAD10_3DMODEL_DIR}/Resistor_SMD.3dshapes/R_0402_1005Metric.step"
+			(offset
+				(xyz 0 0 0)
+			)
+			(scale
+				(xyz 1 1 1)
+			)
+			(rotate
+				(xyz 0 0 0)
+			)
+		)
+	)
 	(footprint "TestPoint:TestPoint_Pad_D1.0mm"
 		(layer "F.Cu")
 		(uuid "cac1c2ed-651f-4d2c-8950-e966b7b946ef")
@@ -11680,6 +13295,115 @@
 			(pinfunction "1_1")
 			(pintype "passive")
 			(uuid "dbffe711-f5fb-475e-8247-7585eb62ac04")
+		)
+		(embedded_fonts no)
+	)
+	(footprint "TestPoint:TestPoint_Pad_D1.0mm"
+		(layer "F.Cu")
+		(uuid "cd31ef66-7857-438b-abc5-732dd0e0b04e")
+		(at 105.025 104.875 90)
+		(descr "SMD pad as test Point, diameter 1.0mm")
+		(tags "test point SMD pad")
+		(property "Reference" "TP23"
+			(at 0 -1.448 90)
+			(layer "F.SilkS")
+			(uuid "8edf7a19-8c73-448c-acf8-46afec787e17")
+			(effects
+				(font
+					(size 1 1)
+					(thickness 0.15)
+				)
+			)
+		)
+		(property "Value" "TP4"
+			(at 0 1.55 90)
+			(layer "F.Fab")
+			(uuid "2df715e7-4284-4551-bf5a-d03518785654")
+			(effects
+				(font
+					(size 1 1)
+					(thickness 0.15)
+				)
+			)
+		)
+		(property "Datasheet" ""
+			(at 0 0 90)
+			(unlocked yes)
+			(layer "F.Fab")
+			(hide yes)
+			(uuid "60a036f2-bef3-47b8-ad2c-c3182f8c9d87")
+			(effects
+				(font
+					(size 1.27 1.27)
+					(thickness 0.15)
+				)
+			)
+		)
+		(property "Description" ""
+			(at 0 0 90)
+			(unlocked yes)
+			(layer "F.Fab")
+			(hide yes)
+			(uuid "f6d0e40a-e8d5-4db0-a8b7-e8fd3f64b3b2")
+			(effects
+				(font
+					(size 1.27 1.27)
+					(thickness 0.15)
+				)
+			)
+		)
+		(property ki_fp_filters "Pin* Test*")
+		(path "/57fa49b0-529f-42db-8396-b05cd80423d2")
+		(sheetname "/")
+		(sheetfile "USBpowermeter.kicad_sch")
+		(units
+			(unit
+				(name "A")
+				(pins "1")
+			)
+		)
+		(duplicate_pad_numbers_are_jumpers no)
+		(fp_circle
+			(center 0 0)
+			(end 0 0.7)
+			(stroke
+				(width 0.12)
+				(type solid)
+			)
+			(fill no)
+			(layer "F.SilkS")
+			(uuid "2ed9b0d6-9fde-4c0c-90e7-5e92d3c74fb0")
+		)
+		(fp_circle
+			(center 0 0)
+			(end 1 0)
+			(stroke
+				(width 0.05)
+				(type solid)
+			)
+			(fill no)
+			(layer "F.CrtYd")
+			(uuid "f11a374b-9670-4642-9740-c97554c74b60")
+		)
+		(fp_text user "${REFERENCE}"
+			(at 0 -1.45 90)
+			(layer "F.Fab")
+			(uuid "0edf8f8c-ec46-4386-bb99-5a2e881dd201")
+			(effects
+				(font
+					(size 1 1)
+					(thickness 0.15)
+				)
+			)
+		)
+		(pad "1" smd circle
+			(at 0 0 90)
+			(size 1 1)
+			(layers "F.Cu" "F.Mask")
+			(net "OLED_3V8")
+			(pinfunction "1_1")
+			(pintype "passive")
+			(uuid "6ea50b2f-ecdb-4e7f-8325-16f6764a206d")
 		)
 		(embedded_fonts no)
 	)
@@ -12108,6 +13832,115 @@
 			(pinfunction "VIN_6")
 			(pintype "unspecified")
 			(uuid "a14ae5b2-4aff-4e4a-9a93-1273b04ba81a")
+		)
+		(embedded_fonts no)
+	)
+	(footprint "TestPoint:TestPoint_Pad_D1.0mm"
+		(layer "F.Cu")
+		(uuid "da1d650d-a4e4-4545-98ab-c8f1e3f7e0cd")
+		(at 105.025 107.925 90)
+		(descr "SMD pad as test Point, diameter 1.0mm")
+		(tags "test point SMD pad")
+		(property "Reference" "TP21"
+			(at 0 -1.448 90)
+			(layer "F.SilkS")
+			(uuid "deb8acad-55b1-405a-a42a-ba41b99542c5")
+			(effects
+				(font
+					(size 1 1)
+					(thickness 0.15)
+				)
+			)
+		)
+		(property "Value" "TP4"
+			(at 0 1.55 90)
+			(layer "F.Fab")
+			(uuid "d1dcba7e-eea4-4439-801c-5f07d637761b")
+			(effects
+				(font
+					(size 1 1)
+					(thickness 0.15)
+				)
+			)
+		)
+		(property "Datasheet" ""
+			(at 0 0 90)
+			(unlocked yes)
+			(layer "F.Fab")
+			(hide yes)
+			(uuid "5cdee098-cd9b-4e4e-903e-2d93d869cf06")
+			(effects
+				(font
+					(size 1.27 1.27)
+					(thickness 0.15)
+				)
+			)
+		)
+		(property "Description" ""
+			(at 0 0 90)
+			(unlocked yes)
+			(layer "F.Fab")
+			(hide yes)
+			(uuid "7f30a129-12fd-4afc-ab56-1124db688df8")
+			(effects
+				(font
+					(size 1.27 1.27)
+					(thickness 0.15)
+				)
+			)
+		)
+		(property ki_fp_filters "Pin* Test*")
+		(path "/c26f89bf-03fe-4260-a401-eb6ca7e7193a")
+		(sheetname "/")
+		(sheetfile "USBpowermeter.kicad_sch")
+		(units
+			(unit
+				(name "A")
+				(pins "1")
+			)
+		)
+		(duplicate_pad_numbers_are_jumpers no)
+		(fp_circle
+			(center 0 0)
+			(end 0 0.7)
+			(stroke
+				(width 0.12)
+				(type solid)
+			)
+			(fill no)
+			(layer "F.SilkS")
+			(uuid "03a151eb-5662-43ff-b56b-a1cb6fea1a17")
+		)
+		(fp_circle
+			(center 0 0)
+			(end 1 0)
+			(stroke
+				(width 0.05)
+				(type solid)
+			)
+			(fill no)
+			(layer "F.CrtYd")
+			(uuid "e9eb2497-9fbf-4c14-bef0-8d0b69267f26")
+		)
+		(fp_text user "${REFERENCE}"
+			(at 0 -1.45 90)
+			(layer "F.Fab")
+			(uuid "5107db8b-b627-47c3-97dc-11b1e570f9be")
+			(effects
+				(font
+					(size 1 1)
+					(thickness 0.15)
+				)
+			)
+		)
+		(pad "1" smd circle
+			(at 0 0 90)
+			(size 1 1)
+			(layers "F.Cu" "F.Mask")
+			(net "Net-(D4-A)")
+			(pinfunction "1_1")
+			(pintype "passive")
+			(uuid "e8551637-758a-45e6-a096-a92a7c44aba5")
 		)
 		(embedded_fonts no)
 	)
@@ -12794,6 +14627,114 @@
 				(xyz 0 0 0)
 			)
 		)
+	)
+	(footprint "TestPoint:TestPoint_Pad_D1.0mm"
+		(layer "F.Cu")
+		(uuid "e2c55975-834d-42d5-a042-eae5cf580ac1")
+		(at 108.075 101.825 90)
+		(descr "SMD pad as test Point, diameter 1.0mm")
+		(tags "test point SMD pad")
+		(property "Reference" "TP26"
+			(at 0 -1.448 90)
+			(layer "F.SilkS")
+			(uuid "85ca4b3d-830c-45d4-8a11-00862c3072e6")
+			(effects
+				(font
+					(size 1 1)
+					(thickness 0.15)
+				)
+			)
+		)
+		(property "Value" "TP4"
+			(at 0 1.55 90)
+			(layer "F.Fab")
+			(uuid "08c7c2d6-7159-4dcf-ae55-d1cf5b6ecd5c")
+			(effects
+				(font
+					(size 1 1)
+					(thickness 0.15)
+				)
+			)
+		)
+		(property "Datasheet" ""
+			(at 0 0 90)
+			(unlocked yes)
+			(layer "F.Fab")
+			(hide yes)
+			(uuid "4941f988-af54-40fb-bbdc-6db70b32228d")
+			(effects
+				(font
+					(size 1.27 1.27)
+					(thickness 0.15)
+				)
+			)
+		)
+		(property "Description" ""
+			(at 0 0 90)
+			(unlocked yes)
+			(layer "F.Fab")
+			(hide yes)
+			(uuid "6bd04df6-932d-4a05-8de8-affe3917692d")
+			(effects
+				(font
+					(size 1.27 1.27)
+					(thickness 0.15)
+				)
+			)
+		)
+		(property ki_fp_filters "Pin* Test*")
+		(sheetname "/")
+		(sheetfile "USBpowermeter.kicad_sch")
+		(units
+			(unit
+				(name "A")
+				(pins "1")
+			)
+		)
+		(duplicate_pad_numbers_are_jumpers no)
+		(fp_circle
+			(center 0 0)
+			(end 0 0.7)
+			(stroke
+				(width 0.12)
+				(type solid)
+			)
+			(fill no)
+			(layer "F.SilkS")
+			(uuid "56de2232-caac-4bd0-8a45-e8f0a5a2acbd")
+		)
+		(fp_circle
+			(center 0 0)
+			(end 1 0)
+			(stroke
+				(width 0.05)
+				(type solid)
+			)
+			(fill no)
+			(layer "F.CrtYd")
+			(uuid "afdcd1da-a33d-4dbd-aa82-ae94a5aa0a3a")
+		)
+		(fp_text user "${REFERENCE}"
+			(at 0 -1.45 90)
+			(layer "F.Fab")
+			(uuid "f5b1044a-a34f-4fb2-ba85-8ed24b180060")
+			(effects
+				(font
+					(size 1 1)
+					(thickness 0.15)
+				)
+			)
+		)
+		(pad "1" smd circle
+			(at 0 0 90)
+			(size 1 1)
+			(layers "F.Cu" "F.Mask")
+			(net "/I2C_SDA")
+			(pinfunction "1_1")
+			(pintype "passive")
+			(uuid "a1d5dbfc-a8f4-4f72-b45c-96bc7c49ccd3")
+		)
+		(embedded_fonts no)
 	)
 	(footprint "Capacitor_SMD:C_0402_1005Metric"
 		(layer "F.Cu")
@@ -13729,25 +15670,25 @@
 			(at -3.81 2)
 			(size 0.74 2.5)
 			(layers "F.Cu" "F.Mask" "F.Paste")
-			(net "+3.3V")
+			(net "unconnected-(J4-Pad1)")
 			(pinfunction "1_1")
-			(pintype "unspecified")
+			(pintype "unspecified+no_connect")
 			(uuid "a673edfa-b2e3-4500-a7e0-d66b14a0b163")
 		)
 		(pad "2" smd rect
 			(at -3.81 -2)
 			(size 0.74 2.5)
 			(layers "F.Cu" "F.Mask" "F.Paste")
-			(net "/SWDIO")
+			(net "unconnected-(J4-Pad2)")
 			(pinfunction "2_2")
-			(pintype "unspecified")
+			(pintype "unspecified+no_connect")
 			(uuid "0a969157-4c3f-4577-ae71-75eea6e3c399")
 		)
 		(pad "3" smd rect
 			(at -2.54 2)
 			(size 0.74 2.5)
 			(layers "F.Cu" "F.Mask" "F.Paste")
-			(net "GND")
+			(net "+3.3V")
 			(pinfunction "3_3")
 			(pintype "unspecified")
 			(uuid "d1c2e705-d3f1-4703-9429-9d563ba467fb")
@@ -13756,7 +15697,7 @@
 			(at -2.54 -2)
 			(size 0.74 2.5)
 			(layers "F.Cu" "F.Mask" "F.Paste")
-			(net "/SWCLK")
+			(net "/SWDIO")
 			(pinfunction "4_4")
 			(pintype "unspecified")
 			(uuid "2eaaace5-61f0-4257-bc96-37f9014f6da4")
@@ -13774,18 +15715,18 @@
 			(at -1.27 -2)
 			(size 0.74 2.5)
 			(layers "F.Cu" "F.Mask" "F.Paste")
-			(net "unconnected-(J4-Pad6)")
+			(net "/SWCLK")
 			(pinfunction "6_6")
-			(pintype "unspecified+no_connect")
+			(pintype "unspecified")
 			(uuid "276c4ee1-f877-4de9-b242-e8002cea5b46")
 		)
 		(pad "7" smd rect
 			(at 0 2)
 			(size 0.74 2.5)
 			(layers "F.Cu" "F.Mask" "F.Paste")
-			(net "unconnected-(J4-Pad7)")
+			(net "GND")
 			(pinfunction "7_7")
-			(pintype "unspecified+no_connect")
+			(pintype "unspecified")
 			(uuid "26241108-f59a-4e07-b2f0-5c9fe108b9e5")
 		)
 		(pad "8" smd rect
@@ -13801,36 +15742,36 @@
 			(at 1.27 2)
 			(size 0.74 2.5)
 			(layers "F.Cu" "F.Mask" "F.Paste")
-			(net "GND")
+			(net "unconnected-(J4-Pad9)")
 			(pinfunction "9_9")
-			(pintype "unspecified")
+			(pintype "unspecified+no_connect")
 			(uuid "3e78f2bd-67dc-4067-b0a1-6732bc84e643")
 		)
 		(pad "10" smd rect
 			(at 1.27 -2)
 			(size 0.74 2.5)
 			(layers "F.Cu" "F.Mask" "F.Paste")
-			(net "/NRST")
+			(net "unconnected-(J4-Pad10)")
 			(pinfunction "10_10")
-			(pintype "unspecified")
+			(pintype "unspecified+no_connect")
 			(uuid "2a0824e6-7f31-492e-8af6-1e219575dfb4")
 		)
 		(pad "11" smd rect
 			(at 2.54 2)
 			(size 0.74 2.5)
 			(layers "F.Cu" "F.Mask" "F.Paste")
-			(net "unconnected-(J4-Pad11)")
+			(net "GND")
 			(pinfunction "11_11")
-			(pintype "unspecified+no_connect")
+			(pintype "unspecified")
 			(uuid "27e4b0ef-5fd0-4815-b287-55f6287b8243")
 		)
 		(pad "12" smd rect
 			(at 2.54 -2)
 			(size 0.74 2.5)
 			(layers "F.Cu" "F.Mask" "F.Paste")
-			(net "unconnected-(J4-Pad12)")
+			(net "/NRST")
 			(pinfunction "12_12")
-			(pintype "unspecified+no_connect")
+			(pintype "unspecified")
 			(uuid "e512e078-9af5-4aac-b512-1f205c08758f")
 		)
 		(pad "13" smd rect

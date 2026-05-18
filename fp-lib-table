@@ -1,4 +1,6 @@
 (fp_lib_table
 	(version 7)
+	(lib (name "Library") (type "KiCad") (uri "${KIPRJMOD}/libs/Library.pretty") (options "") (descr ""))
 	(lib (name "Library_new") (type "KiCad") (uri "${KIPRJMOD}/libs/Library_new.pretty") (options "") (descr ""))
+	(lib (name "C94598") (type "KiCad") (uri "C:/Users/Jun/Downloads/C94598-kicad/C94598.pretty") (options "") (descr ""))
 )

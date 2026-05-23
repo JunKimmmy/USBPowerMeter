@@ -113,7 +113,6 @@
 		)
 		(capping no)
 		(filling no)
-		(zone_defaults)
 		(pcbplotparams
 			(layerselection 0x00000000_00000000_55555555_5755f5ff)
 			(plot_on_all_layers_selection 0x00000000_00000000_00000000_00000000)
@@ -5542,7 +5541,7 @@
 			(uuid "20431618-0255-4cd0-86e5-6bc8ec94cae6")
 		)
 		(embedded_fonts no)
-		(model "C:/Users/jun31/Downloads/USB4155_03_C (1)/USB4155-03-C_REVA.step"
+		(model "${KIPRJMOD}/libs/3dmodels/USB4155-03-C_REVA.step"
 			(offset
 				(xyz 0 -14 0.1)
 			)
@@ -9616,7 +9615,7 @@
 			(uuid "bcb608f7-6a68-4042-b4f9-f5c46c88aec9")
 		)
 		(embedded_fonts no)
-		(model "C:/Users/jun31/Downloads/USB4215_03_A (1)/USB4215-03-A_revA.STEP"
+		(model "${KIPRJMOD}/libs/3dmodels/USB4215-03-A_revA.STEP"
 			(offset
 				(xyz 0 -3 1.5)
 			)
@@ -16537,6 +16536,17 @@
 			(uuid "004c8834-7b88-4a1b-8340-0b4b82082ab4")
 		)
 		(embedded_fonts no)
+		(model "${KIPRJMOD}/libs/3dmodels/LMR36006FSC3RNXRQ1.step"
+			(offset
+				(xyz -0.15 0 0)
+			)
+			(scale
+				(xyz 1 1 1)
+			)
+			(rotate
+				(xyz -90 -0 -90)
+			)
+		)
 	)
 	(footprint "Resistor_SMD:R_0402_1005Metric"
 		(layer "B.Cu")

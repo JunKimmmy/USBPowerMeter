@@ -1,0 +1,26 @@
+# KiCad lock files
+*.lck
+
+# Root-level library tables (contain local/absolute paths to KiCad's installed libraries)
+/fp-lib-table
+/sym-lib-table
+
+# Exported files
+*.csv
+*.net
+*.xml
+*.rpt
+
+# KiCad automatic backups
+*-backups/
+
+# KiCad Python library pickle cache
+lib_pickle_dir/
+
+# Local history
+.history/
+other files/
+
+# OS files
+.DS_Store
+Thumbs.db

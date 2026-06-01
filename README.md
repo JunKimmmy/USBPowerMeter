@@ -1,5 +1,9 @@
 # USB-C Power Meter
 
+<img width="1439" height="830" alt="image" src="https://github.com/user-attachments/assets/52224292-88da-4883-9ddf-5c6566afd1ce" />
+<img width="1560" height="839" alt="image" src="https://github.com/user-attachments/assets/efb3bae3-b8d9-4520-8bcc-66f73c92c356" />
+
+
 A compact USB-C passthrough power meter with real-time voltage, current, and power monitoring displayed on an integrated OLED screen.
 
 ## Overview

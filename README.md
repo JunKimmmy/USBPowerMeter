@@ -52,4 +52,5 @@ libs/
 
 ## Tools
 
-- KiCad 9
+- KiCad 10
+

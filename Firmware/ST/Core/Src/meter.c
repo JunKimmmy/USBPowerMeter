@@ -7,6 +7,7 @@
 
 extern I2C_HandleTypeDef hi2c2;
 extern void Buzzer_Tone(uint32_t freq_hz, uint32_t duration_ms);
+extern uint8_t g_muted;
 void DANCE_Run(void);
 
 /* ═══════════════════════════════════════════════════════════════════
@@ -176,38 +177,70 @@ static void draw_meter(int32_t vbus_mv, int32_t cur_ma, int32_t pwr_mw,
                        int32_t avg_cur, int32_t avg_pwr)
 {
     fb_clear();
-    char buf[24];
+    char buf[36], buf2[36];
 
-    /* ── Header box ── */
+    /* ═══════════════════════════════════════════════════════════════
+     * Layout  (128 × 64)
+     *
+     *  y= 0         top border
+     *  y= 2.. 8     "VOLT"  |  "AMPS"   (1x labels, centred in halves)
+     *  y= 9         thin underline in each column
+     *  y=11..24     5.12    |  1.23     (2x values, centred in halves)
+     *  y=25..31     V       |  A        (1x units)
+     *  y=32..33     ══ double separator ══
+     *  y=37..50     6.318 W             (2x power, full-width centred)
+     *  y=55         footer separator
+     *  y=57..63     Avg 1.23A  1.23W   (1x footer)
+     *  x=63         vertical column divider  (y=0..31)
+     * ═══════════════════════════════════════════════════════════════ */
+
+    /* ── Top border ── */
     fb_hline(0, 127, 0);
-    fb_vline(0, 0, 8);
-    fb_vline(127, 0, 8);
-    fb_hline(0, 127, 8);
-    fb_str_c(1, "USB POWER METER");
 
-    /* ── Voltage ── */
-    snprintf(buf, sizeof(buf), "%ld.%03ldV", vbus_mv / 1000, vbus_mv % 1000);
-    fb_str2x_c(10, buf);
+    /* ── Column divider ── */
+    fb_vline(63, 0, 31);
 
-    /* ── Divider ── */
-    fb_hline(16, 111, 25);
-    fb_px(14, 25); fb_px(15, 25); fb_px(112, 25); fb_px(113, 25);
+    /* ── Column labels ── */
+    fb_str(19, 2, "VOLT");     /* centre in x=0..62: (62-24)/2 = 19 */
+    fb_str(84, 2, "AMPS");     /* centre in x=64..127: 64+(63-24)/2 = 84 */
 
-    /* ── Current ── */
-    snprintf(buf, sizeof(buf), "%ld.%03ldA", cur_ma / 1000, cur_ma % 1000);
-    fb_str2x_c(27, buf);
+    /* ── Thin underline below labels ── */
+    fb_hline(1,  61,  9);
+    fb_hline(65, 126, 9);
 
-    /* ── Divider ── */
-    fb_hline(16, 111, 41);
-    fb_px(14, 41); fb_px(15, 41); fb_px(112, 41); fb_px(113, 41);
+    /* ── 2x values, dynamically centred within each half ── */
+    snprintf(buf,  sizeof(buf),  "%ld.%02ld", vbus_mv / 1000, (vbus_mv % 1000) / 10);
+    snprintf(buf2, sizeof(buf2), "%ld.%02ld", cur_ma  / 1000, (cur_ma  % 1000) / 10);
 
-    /* ── Power ── */
+    {   /* voltage — centre in x=0..62 */
+        int w = (int)strlen(buf) * 12;
+        int x = (62 - w) / 2; if (x < 0) x = 0;
+        fb_str2x(x, 11, buf);
+    }
+    {   /* current — centre in x=64..127 */
+        int w = (int)strlen(buf2) * 12;
+        int x = 64 + (63 - w) / 2; if (x < 64) x = 64;
+        fb_str2x(x, 11, buf2);
+    }
+
+    /* ── Unit labels, centred in each half ── */
+    fb_str(28, 26, "V");       /* centre in x=0..62:  (62-6)/2 = 28 */
+    fb_str(93, 26, "A");       /* centre in x=64..127: 64+(63-6)/2 = 93 */
+
+    /* ── Double section separator ── */
+    fb_hline(0, 127, 32);
+    fb_hline(0, 127, 33);
+
+    /* ── Power value, large and centred ── */
     snprintf(buf, sizeof(buf), "%ld.%03ldW", pwr_mw / 1000, pwr_mw % 1000);
-    fb_str2x_c(42, buf);
+    fb_str2x_c(37, buf);       /* 2x, 14px tall → fills y=37..50 */
+
+    /* ── Footer separator ── */
+    fb_hline(0, 127, 55);
 
     /* ── Footer: running averages ── */
     if (g_count > 0) {
-        snprintf(buf, sizeof(buf), "Avg:%ld.%02ldA  %ld.%02ldW",
+        snprintf(buf, sizeof(buf), "Avg %ld.%02ldA  %ld.%02ldW",
                  avg_cur / 1000, (avg_cur % 1000) / 10,
                  avg_pwr / 1000, (avg_pwr % 1000) / 10);
         fb_str_c(57, buf);
@@ -241,7 +274,7 @@ static void draw_graph(uint8_t is_cur)
         if (max_val < 1) max_val = 1;
     }
 
-    char buf[24];
+    char buf[36];
 
     /* ── Header line: screen title + live reading ── */
     snprintf(buf, sizeof(buf), "%s %ld.%03ld%c",
@@ -343,40 +376,51 @@ void METER_Run(void)
             else if (screen == 1) draw_graph(1);   /* current */
             else                  draw_graph(0);   /* power   */
 
+            if (g_muted) fb_str(111, 2, "M");
             fb_flush();
         }
 
         /* ── BTN_PAGE: previous screen ── */
         if (btn_read(BTN_PAGE_Pin, BTN_PAGE_GPIO_Port)) {
-            Buzzer_Tone(1200, 80);
-            Buzzer_Tone(1200, 80);
+            if (!g_muted) { Buzzer_Tone(1200, 80); Buzzer_Tone(1200, 80); }
             screen = (screen + 2) % 3u;
         }
 
         /* ── BTN_AUX: next screen ── */
         if (btn_read(BTN_AUX_Pin, BTN_AUX_GPIO_Port)) {
-            Buzzer_Tone(1200, 80);
-            Buzzer_Tone(1200, 80);
+            if (!g_muted) { Buzzer_Tone(1200, 80); Buzzer_Tone(1200, 80); }
             screen = (screen + 1) % 3u;
         }
 
-        /* ── BTN_RESET: home screen; quad-click = Easter egg ── */
-        if (btn_read(BTN_RESET_Pin, BTN_RESET_GPIO_Port)) {
-            Buzzer_Tone(1200, 80);
-            Buzzer_Tone(1200, 80);
-            uint32_t t = HAL_GetTick();
-            if (reset_clicks == 0 || (t - reset_window) > 2000u) {
-                reset_clicks = 1;
-                reset_window = t;
-            } else {
-                reset_clicks++;
-            }
-            if (reset_clicks >= 4) {
-                reset_clicks = 0;
-                DANCE_Run();
-                OLED_Clear();
-            } else {
-                screen = 0;
+        /* ── BTN_RESET: hold 800ms = mute toggle; short press = home / Easter egg ── */
+        if (HAL_GPIO_ReadPin(BTN_RESET_GPIO_Port, BTN_RESET_Pin) == GPIO_PIN_RESET) {
+            HAL_Delay(20);
+            if (HAL_GPIO_ReadPin(BTN_RESET_GPIO_Port, BTN_RESET_Pin) == GPIO_PIN_RESET) {
+                uint32_t press_t = HAL_GetTick();
+                uint8_t held = 0;
+                while (HAL_GPIO_ReadPin(BTN_RESET_GPIO_Port, BTN_RESET_Pin) == GPIO_PIN_RESET) {
+                    if (HAL_GetTick() - press_t >= 800u) { held = 1; break; }
+                }
+                while (HAL_GPIO_ReadPin(BTN_RESET_GPIO_Port, BTN_RESET_Pin) == GPIO_PIN_RESET);
+                if (held) {
+                    g_muted ^= 1;
+                } else {
+                    if (!g_muted) { Buzzer_Tone(1200, 80); Buzzer_Tone(1200, 80); }
+                    uint32_t t = HAL_GetTick();
+                    if (reset_clicks == 0 || (t - reset_window) > 2000u) {
+                        reset_clicks = 1;
+                        reset_window = t;
+                    } else {
+                        reset_clicks++;
+                    }
+                    if (reset_clicks >= 4) {
+                        reset_clicks = 0;
+                        DANCE_Run();
+                        OLED_Clear();
+                    } else {
+                        screen = 0;
+                    }
+                }
             }
         }
     }

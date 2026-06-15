@@ -24,3 +24,13 @@ other files/
 # OS files
 .DS_Store
 Thumbs.db
+
+# STM32CubeIDE build output
+Firmware/ST/Debug/
+
+# Claude Code settings
+.claude/
+**/.claude/
+
+# STM32CubeIDE workspace settings (machine-local)
+Firmware/ST/.settings/

@@ -1,9 +1,0 @@
-../Core/Src/oled.c:105:13:send_cmd	1
-../Core/Src/oled.c:111:13:send_cmds	3
-../Core/Src/oled.c:120:6:OLED_SetCursor	1
-../Core/Src/oled.c:130:6:OLED_Clear	3
-../Core/Src/oled.c:144:6:OLED_Fill	3
-../Core/Src/oled.c:158:6:OLED_ClearLine	2
-../Core/Src/oled.c:167:6:OLED_WriteChar	4
-../Core/Src/oled.c:179:6:OLED_WriteString	3
-../Core/Src/oled.c:188:19:OLED_Init	2

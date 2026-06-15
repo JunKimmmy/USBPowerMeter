@@ -1,14 +1,22 @@
 # USB-C Power Meter
 
-<img width="1439" height="830" alt="image" src="https://github.com/user-attachments/assets/52224292-88da-4883-9ddf-5c6566afd1ce" />
-<img width="1560" height="839" alt="image" src="https://github.com/user-attachments/assets/efb3bae3-b8d9-4520-8bcc-66f73c92c356" />
+<!-- Add photos/demo GIF here -->
 
+A compact USB-C passthrough power meter that displays real-time voltage, current, and power on an integrated 128×64 OLED screen. It sits inline between a USB-C charger and a device — all USB signals pass through transparently while the onboard MCU samples the INA238 power monitor and drives the display.
 
-A compact USB-C passthrough power meter with real-time voltage, current, and power monitoring displayed on an integrated OLED screen.
+---
 
-## Overview
+## Features
 
-This board sits inline between a USB-C charger and a device, measuring VBUS voltage and current in real time. All USB signals pass through transparently while the onboard MCU reads the INA238 and drives a 128×64 OLED display.
+- **Real-time readout** — voltage, current, and power updated continuously
+- **Rolling graphs** — 128-sample circular-buffer plots for current and power with live, average, and peak annotations
+- **Running averages** — displayed in the footer of the main meter screen
+- **Boot animation** and **dancing-banana easter egg**
+- **Buzzer** with user-configurable tones and mute toggle
+- **Power switch** and **navigation buttons** for menu control
+- Full USB-C signal passthrough (VBUS + data lines)
+
+---
 
 ## Specifications
 
@@ -16,12 +24,14 @@ This board sits inline between a USB-C charger and a device, measuring VBUS volt
 |-----------|-------|
 | Input voltage range | 0.3 V – 48 V |
 | Max continuous current | 5 A |
-| Voltage/current resolution | 16-bit (INA238) |
-| Display | 128×64 OLED (SSD1315), I2C |
-| MCU | STM32G030 |
-| Supply (MCU/peripherals) | 3.3 V (onboard buck from VBUS) |
-| OLED supply | 3.8 V (onboard boost) |
-| Connectivity | USB-C male + female passthrough |
+| ADC resolution | 16-bit (INA238) |
+| Display | 128×64 OLED (SSD1315), I²C |
+| MCU | STM32G030K6T6 (LQFP-32) |
+| MCU/peripheral supply | 3.3 V buck from VBUS |
+| OLED supply | 3.8 V boost |
+| Passthrough | USB-C male + USB-C female |
+
+---
 
 ## Hardware
 
@@ -29,32 +39,75 @@ This board sits inline between a USB-C charger and a device, measuring VBUS volt
 
 | IC | Function |
 |----|----------|
-| INA238 | 16-bit high-precision power/current/voltage monitor |
-| STM32G030 | Measurement processing and display control |
-| SSD1315 | 128×64 OLED display controller |
+| INA238 | 16-bit high-precision power/current/voltage monitor (shunt + bus voltage) |
+| STM32G030K6T6 | Measurement processing, graph engine, display control |
+| SSD1315 | 128×64 OLED controller (I²C) |
+| LMR36006 | VBUS-to-3.3 V synchronous buck regulator |
+| DGS0010A | 3.8 V boost supply for OLED |
 
-### Features
+### Schematic & PCB
 
-- Full USB-C signal passthrough (power + data lines)
-- VBUS-to-3.3 V buck regulator powering MCU and peripherals
-- Dedicated 3.8 V boost supply for OLED
-- Navigation buttons for menu control
-- Power switch
-- Buzzer
-- SWD debug/programming header
+Designed in **KiCad 10**. All custom symbols and footprints are in `libs/`.
+
+### Enclosure
+
+3D-printable enclosure designed in OnShape:
+[View in OnShape](https://cad.onshape.com/documents/12768789c7e8d715e02a9c44/w/91224a42db391f032592c489/e/40e560f0614cc0d05faddfcd?renderMode=0&uiState=6a30851d7d6de7ff176b633c)
+
+---
+
+## Firmware
+
+Written in C using STM32CubeIDE with the STM32 HAL. Targets the STM32G030K6T6.
+
+### Display Modes
+
+| Mode | Description |
+|------|-------------|
+| **Main Meter** | Two-column header (VOLT / AMPS), large 2× readout, full-width power row, footer with running averages |
+| **Current Graph** | 128-sample rolling plot of current (mA), dashed line = running average, header shows live + avg + peak |
+| **Power Graph** | Same layout as current graph but for power (mW) |
+
+Navigate between modes with the onboard buttons.
+
+### Source Modules
+
+| File | Purpose |
+|------|---------|
+| `main.c` | HAL init, main loop, buzzer tone engine |
+| `meter.c` | Display screens, graph circular buffer, button debounce |
+| `oled.c` | SSD1315 OLED driver (I²C, page-mode framebuffer) |
+| `ina238.c` | INA238 driver — shunt/bus voltage, current, power registers |
+| `boot.c` | Animated boot screen |
+| `banana.c / banana_frames.c` | Dancing-banana easter egg animation |
+
+### Tools
+
+| File | Purpose |
+|------|---------|
+| `generate_frames.py` | Converts 249×246 GIF PROGMEM bitmaps to SSD1315 page-format C arrays |
+
+### Building & Flashing
+
+1. Open `Firmware/ST/` in **STM32CubeIDE**
+2. Build (Ctrl+B) — targets STM32G030K6T6, `STM32G030K6TX_FLASH.ld`
+3. Flash via the SWD header on the board using ST-Link or a compatible programmer
+
+---
 
 ## Repository Structure
 
 ```
-USBpowermeter.kicad_pro   — KiCad project file
-USBpowermeter.kicad_sch   — Schematic
-USBpowermeter.kicad_pcb   — PCB layout
+USBpowermeter.kicad_pro       KiCad project
+USBpowermeter.kicad_sch       Schematic
+USBpowermeter.kicad_pcb       PCB layout
 libs/
-  Library.kicad_sym        — Custom schematic symbols
-  Library.pretty/          — Custom footprints
+  Library.kicad_sym           Custom schematic symbols
+  Library.pretty/             Custom footprints
+  3dmodels/                   STEP models for 3D viewer
+Firmware/ST/
+  Core/Src/                   Application source (C)
+  Core/Inc/                   Application headers
+  Drivers/                    STM32 HAL + CMSIS
+  generate_frames.py          Bitmap conversion tool
 ```
-
-## Tools
-
-- KiCad 10
-

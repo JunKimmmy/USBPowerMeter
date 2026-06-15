@@ -67,7 +67,7 @@ I2C_HandleTypeDef hi2c2;
 TIM_HandleTypeDef htim3;
 
 /* USER CODE BEGIN PV */
-
+uint8_t g_muted = 0;
 /* USER CODE END PV */
 
 /* Private function prototypes -----------------------------------------------*/
@@ -81,6 +81,7 @@ void Buzzer_Off(void);
 void Play_Song1(void);
 void Play_Song2(void);
 void Play_Song3(void);
+void HEV_Boot_Sound(void);
 /* USER CODE END PFP */
 
 /* Private user code ---------------------------------------------------------*/
@@ -132,6 +133,7 @@ int main(void)
       HAL_Delay(2000);
       OLED_Clear();
   }
+  HEV_Boot_Sound();
   BOOT_Run();   /* one-shot boot screen with graph animation */
   /* USER CODE END 2 */
 
@@ -404,6 +406,28 @@ void Play_Song3(void)
   };
   for (uint32_t i = 0; i < sizeof(melody) / sizeof(melody[0]); i++)
     Buzzer_Tone(melody[i][0], melody[i][1]);
+}
+
+void HEV_Boot_Sound(void)
+{
+  /* Rising exponential sweep — simulates HEV capacitor charge */
+  static const uint32_t sweep_f[] = { 120, 160, 210, 270, 340, 420, 510, 610, 720, 840 };
+  static const uint16_t sweep_d[] = {  55,  45,  38,  32,  28,  25,  23,  22,  22,  60 };
+  for (int i = 0; i < 10; i++)
+  {
+    uint32_t arr = (1000000UL / sweep_f[i]) - 1;
+    __HAL_TIM_SET_AUTORELOAD(&htim3, arr);
+    __HAL_TIM_SET_COMPARE(&htim3, TIM_CHANNEL_3, arr / 2);
+    HAL_TIM_PWM_Start(&htim3, TIM_CHANNEL_3);
+    HAL_Delay(sweep_d[i]);
+  }
+  HAL_TIM_PWM_Stop(&htim3, TIM_CHANNEL_3);
+  HAL_Delay(90);
+
+  /* Three ascending confirmation tones — "HEV suit activated" */
+  Buzzer_Tone(784,  90);   /* G5 */
+  Buzzer_Tone(988,  90);   /* B5 */
+  Buzzer_Tone(1319, 220);  /* E6 */
 }
 /* USER CODE END 4 */
 

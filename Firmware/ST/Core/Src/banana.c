@@ -6,6 +6,40 @@
 extern I2C_HandleTypeDef hi2c2;
 extern TIM_HandleTypeDef htim3;
 extern void Buzzer_Tone(uint32_t freq_hz, uint32_t duration_ms);
+extern uint8_t g_muted;
+
+/* ═══════════════════════════════════════════════════════════════════
+ * Buzzer helpers
+ * ═══════════════════════════════════════════════════════════════════ */
+static void buzz(uint32_t freq)
+{
+    if (!freq) { HAL_TIM_PWM_Stop(&htim3, TIM_CHANNEL_3); return; }
+    uint32_t arr = (1000000UL / freq) - 1;
+    __HAL_TIM_SET_AUTORELOAD(&htim3, arr);
+    __HAL_TIM_SET_COMPARE(&htim3, TIM_CHANNEL_3, arr / 2);
+    HAL_TIM_PWM_Start(&htim3, TIM_CHANNEL_3);
+}
+
+static void sfx_fire(void)
+{
+    if (g_muted) return;
+    buzz(1400); HAL_Delay(8); buzz(900); HAL_Delay(7); buzz(0);
+}
+
+static void sfx_explode(void)
+{
+    if (g_muted) return;
+    buzz(500); HAL_Delay(18); buzz(250); HAL_Delay(17); buzz(0);
+}
+
+static void sfx_gameover(void)
+{
+    if (g_muted) return;
+    Buzzer_Tone(494, 200);
+    Buzzer_Tone(440, 200);
+    Buzzer_Tone(392, 200);
+    Buzzer_Tone(330, 500);
+}
 
 /* ═══════════════════════════════════════════════════════════════════
  * Framebuffer
@@ -68,44 +102,6 @@ static void fb_flush(void)
     }
 }
 
-/* ═══════════════════════════════════════════════════════════════════
- * Buzzer
- * ═══════════════════════════════════════════════════════════════════ */
-static void buzz(uint32_t freq)
-{
-    if (!freq) { HAL_TIM_PWM_Stop(&htim3, TIM_CHANNEL_3); return; }
-    uint32_t arr = (1000000UL/freq) - 1;
-    __HAL_TIM_SET_AUTORELOAD(&htim3, arr);
-    __HAL_TIM_SET_COMPARE(&htim3, TIM_CHANNEL_3, arr/2);
-    HAL_TIM_PWM_Start(&htim3, TIM_CHANNEL_3);
-}
-
-/* ═══════════════════════════════════════════════════════════════════
- * MIDI melody
- * ═══════════════════════════════════════════════════════════════════ */
-#define N_MUSIC 46
-
-static const uint16_t M_FREQ[N_MUSIC] = {
-    784, 523, 659, 784, 523, 659, 784, 494, 622, 784,
-    988, 880, 784, 466, 587, 784, 466, 587, 784, 554,
-    659, 784, 988, 880, 988,1047, 988,1047, 880,1047,
-    988, 880, 784, 740, 784, 659, 554, 587, 659, 698,
-    659, 698, 494, 659, 587, 523
-};
-static const uint16_t M_DUR[N_MUSIC] = {
-    100, 100, 100, 299, 100, 100, 100, 100, 100, 100,
-    100, 711, 100, 100, 100, 299, 100, 100, 100, 100,
-    100, 100, 100, 498, 100, 100, 100, 100, 199, 100,
-    100, 100, 100, 100, 100, 299, 100, 100, 100, 100,
-    100, 100, 299, 100, 100, 711
-};
-static const uint16_t M_GAP[N_MUSIC] = {
-    128,  14, 128,  43,  14, 128,  14,  14,  14,  14,
-    128,  85, 128,  14, 128,  43,  14, 128,  14,  14,
-     14,  14, 128, 185,  14, 128,  14, 128, 142,  14,
-    128,  14, 128,  14, 128,  43,  14, 128,  14, 128,
-     14, 128,  43,  14, 128,   0
-};
 
 /* ═══════════════════════════════════════════════════════════════════
  * LCG random  (seeded from HAL_GetTick at game start)
@@ -235,12 +231,6 @@ void DANCE_Run(void)
     a_act[0]=1; a_x[0]=100; a_y[0]=20; a_r[0]=4; a_spd[0]=2;
     a_act[1]=1; a_x[1]=70;  a_y[1]=45; a_r[1]=3; a_spd[1]=1;
 
-    /* Music sequencer state */
-    uint32_t m_note  = 0;
-    uint32_t m_start = HAL_GetTick();
-    uint8_t  m_phase = 0;
-    buzz(M_FREQ[0]);
-
     /* Game timing */
     uint32_t last_frame = 0;
     uint32_t frame      = 0;
@@ -250,32 +240,13 @@ void DANCE_Run(void)
     {
         uint32_t now = HAL_GetTick();
 
-        /* ── BTN_PAGE : exit ───────────────────────────────────── */
-        if (HAL_GPIO_ReadPin(BTN_PAGE_GPIO_Port, BTN_PAGE_Pin) == GPIO_PIN_RESET) {
+        /* ── BTN_RESET : exit ──────────────────────────────────── */
+        if (HAL_GPIO_ReadPin(BTN_RESET_GPIO_Port, BTN_RESET_Pin) == GPIO_PIN_RESET) {
             HAL_Delay(20);
-            if (HAL_GPIO_ReadPin(BTN_PAGE_GPIO_Port, BTN_PAGE_Pin) == GPIO_PIN_RESET) {
-                buzz(0);
-                Buzzer_Tone(1200, 80);
-                Buzzer_Tone(1200, 80);
+            if (HAL_GPIO_ReadPin(BTN_RESET_GPIO_Port, BTN_RESET_Pin) == GPIO_PIN_RESET) {
+                if (!g_muted) { Buzzer_Tone(1200, 80); Buzzer_Tone(1200, 80); }
                 OLED_Clear();
                 return;
-            }
-        }
-
-        /* ── Arcade music sequencer ────────────────────────────── */
-        if (m_phase == 0) {
-            if (now - m_start >= M_DUR[m_note]) {
-                buzz(0);
-                if (M_GAP[m_note] > 0) { m_phase = 1; m_start = now; }
-                else {
-                    m_note = (m_note + 1) % N_MUSIC;
-                    buzz(M_FREQ[m_note]); m_start = now;
-                }
-            }
-        } else {
-            if (now - m_start >= M_GAP[m_note]) {
-                m_note = (m_note + 1) % N_MUSIC;
-                buzz(M_FREQ[m_note]); m_start = now; m_phase = 0;
             }
         }
 
@@ -283,9 +254,9 @@ void DANCE_Run(void)
         if (now - last_frame < 50) continue;
         last_frame = now;
 
-        /* Input — move ship */
-        if (HAL_GPIO_ReadPin(BTN_AUX_GPIO_Port,   BTN_AUX_Pin)   == GPIO_PIN_RESET) ship_y -= 3;
-        if (HAL_GPIO_ReadPin(BTN_RESET_GPIO_Port, BTN_RESET_Pin) == GPIO_PIN_RESET) ship_y += 3;
+        /* Input — move ship (BTN_PAGE=up, BTN_AUX=down) */
+        if (HAL_GPIO_ReadPin(BTN_PAGE_GPIO_Port, BTN_PAGE_Pin) == GPIO_PIN_RESET) ship_y -= 3;
+        if (HAL_GPIO_ReadPin(BTN_AUX_GPIO_Port,  BTN_AUX_Pin)  == GPIO_PIN_RESET) ship_y += 3;
         if (ship_y < 11) ship_y = 11;
         if (ship_y > 54) ship_y = 54;
 
@@ -296,6 +267,7 @@ void DANCE_Run(void)
                     b_act[i] = 1;
                     b_x[i]   = (int16_t)(SHIP_X + SHIP_W + 1);
                     b_y[i]   = (int8_t)ship_y;
+                    sfx_fire();
                     break;
                 }
             }
@@ -308,11 +280,26 @@ void DANCE_Run(void)
             if (b_x[i] > 127) b_act[i] = 0;
         }
 
-        /* Move asteroids left */
+        /* Move asteroids left; asteroid reaching edge = game over */
         for (int i = 0; i < MAX_ASTROS; i++) {
             if (!a_act[i]) continue;
             a_x[i] -= a_spd[i];
-            if (a_x[i] + a_r[i] < 0) a_act[i] = 0;
+            if (a_x[i] + a_r[i] < 0) {
+                fb_clear();
+                fb_str(28, 2, "GAME  OVER");
+                char go_buf[6];
+                go_buf[0] = '0' + (char)((score/1000) % 10);
+                go_buf[1] = '0' + (char)((score/100)  % 10);
+                go_buf[2] = '0' + (char)((score/10)   % 10);
+                go_buf[3] = '0' + (char)( score       % 10);
+                go_buf[4] = '\0';
+                fb_str(52, 4, go_buf);
+                fb_flush();
+                sfx_gameover();
+                HAL_Delay(600);
+                OLED_Clear();
+                return;
+            }
         }
 
         /* Spawn one asteroid at variable interval */
@@ -344,7 +331,32 @@ void DANCE_Run(void)
                     b_act[b] = 0;
                     a_act[a] = 0;
                     if (score < 9999) score++;
+                    sfx_explode();
                 }
+            }
+        }
+
+        /* Collision: asteroid vs ship */
+        for (int a = 0; a < MAX_ASTROS; a++) {
+            if (!a_act[a]) continue;
+            int dx = (int)a_x[a] - (SHIP_X + 6);
+            int dy = (int)a_y[a] - (int)ship_y;
+            int rr = (int)a_r[a] + 5;
+            if (dx*dx + dy*dy <= rr*rr) {
+                fb_clear();
+                fb_str(28, 2, "GAME  OVER");
+                char go_buf[6];
+                go_buf[0] = '0' + (char)((score/1000) % 10);
+                go_buf[1] = '0' + (char)((score/100)  % 10);
+                go_buf[2] = '0' + (char)((score/10)   % 10);
+                go_buf[3] = '0' + (char)( score       % 10);
+                go_buf[4] = '\0';
+                fb_str(52, 4, go_buf);
+                fb_flush();
+                sfx_gameover();
+                HAL_Delay(600);
+                OLED_Clear();
+                return;
             }
         }
 

@@ -1,7 +1,0 @@
-../Core/Src/ina238.c:6:26:reg_read	2
-../Core/Src/ina238.c:17:26:reg_write	1
-../Core/Src/ina238.c:25:19:INA238_Init	4
-../Core/Src/ina238.c:48:9:INA238_ReadVBUS_mV	2
-../Core/Src/ina238.c:57:9:INA238_ReadVSHUNT_uV	2
-../Core/Src/ina238.c:66:9:INA238_ReadCurrent_mA	1
-../Core/Src/ina238.c:72:9:INA238_ReadTemp_degC	3

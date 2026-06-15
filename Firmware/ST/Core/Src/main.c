@@ -25,6 +25,7 @@
 #include "ina238.h"
 #include "banana.h"
 #include "boot.h"
+#include "meter.h"
 #include <stdio.h>
 /* USER CODE END Includes */
 
@@ -80,7 +81,6 @@ void Buzzer_Off(void);
 void Play_Song1(void);
 void Play_Song2(void);
 void Play_Song3(void);
-void I2C_Scan(void);
 /* USER CODE END PFP */
 
 /* Private user code ---------------------------------------------------------*/
@@ -120,7 +120,11 @@ int main(void)
   MX_I2C2_Init();
   MX_TIM3_Init();
   /* USER CODE BEGIN 2 */
-  I2C_Scan();
+  HAL_GPIO_WritePin(OLED_RESET_GPIO_Port, OLED_RESET_Pin, GPIO_PIN_RESET);
+  HAL_GPIO_WritePin(OLED_POWER_EN_GPIO_Port, OLED_POWER_EN_Pin, GPIO_PIN_SET);
+  HAL_Delay(100);
+  HAL_GPIO_WritePin(OLED_RESET_GPIO_Port, OLED_RESET_Pin, GPIO_PIN_SET);
+  HAL_Delay(10);
   OLED_Init();
   if (INA238_Init() != HAL_OK)
   {
@@ -133,59 +137,10 @@ int main(void)
 
   /* Infinite loop */
   /* USER CODE BEGIN WHILE */
-  while (1)
-  {
-    /* USER CODE END WHILE */
+  /* USER CODE END WHILE */
 
-    /* USER CODE BEGIN 3 */
-    /* ── Power meter mode (default) ────────────────────────────── */
-    OLED_Clear();
-    OLED_WriteString(0, 7, "USB Power Meter");
-
-    /* thin separator across page 1 */
-    uint8_t sep[129];
-    sep[0] = 0x40;
-    for (uint8_t i = 1; i < 129; i++) sep[i] = 0x01;
-    OLED_SetCursor(1, 0);
-    HAL_I2C_Master_Transmit(&hi2c2, OLED_I2C_ADDR, sep, 129, 50);
-
-    while (1)
-    {
-        int32_t vbus_mv = INA238_ReadVBUS_mV();
-        int32_t cur_ma  = INA238_ReadCurrent_mA();
-        if (vbus_mv < 0) vbus_mv = 0;
-        if (cur_ma  < 0) cur_ma  = 0;
-        int32_t pwr_mw  = (int32_t)(((int64_t)vbus_mv * cur_ma) / 1000);
-
-        char buf[32];
-        snprintf(buf, sizeof(buf), "V: %2ld.%03ld V       ", vbus_mv / 1000, vbus_mv % 1000);
-        OLED_WriteString(2, 0, buf);
-        snprintf(buf, sizeof(buf), "I: %2ld.%03ld A       ", cur_ma / 1000, cur_ma % 1000);
-        OLED_WriteString(4, 0, buf);
-        snprintf(buf, sizeof(buf), "P: %2ld.%03ld W       ", pwr_mw / 1000, pwr_mw % 1000);
-        OLED_WriteString(6, 0, buf);
-
-        /* BTN_PAGE: enter stickman dance mode */
-        if (HAL_GPIO_ReadPin(BTN_PAGE_GPIO_Port, BTN_PAGE_Pin) == GPIO_PIN_RESET)
-        {
-            HAL_Delay(20);
-            if (HAL_GPIO_ReadPin(BTN_PAGE_GPIO_Port, BTN_PAGE_Pin) == GPIO_PIN_RESET)
-            {
-                while (HAL_GPIO_ReadPin(BTN_PAGE_GPIO_Port, BTN_PAGE_Pin) == GPIO_PIN_RESET);
-                Buzzer_Tone(1200, 80);
-                Buzzer_Tone(1200, 80);
-                break;
-            }
-        }
-        else
-        {
-            HAL_Delay(200);
-        }
-    }
-
-    /* ── Stickman dance mode ────────────────────────────────────── */
-    DANCE_Run();   /* blocks until BTN_PAGE pressed, then returns */
-  }
+  /* USER CODE BEGIN 3 */
+  METER_Run();   /* handles meter + graph screens + Easter-egg dance; never returns */
   /* USER CODE END 3 */
 }
 
@@ -377,38 +332,6 @@ static void MX_GPIO_Init(void)
 
 /* USER CODE BEGIN 4 */
 
-/* Scans all valid I2C addresses (0x08-0x77).
-   For each device that ACKs, plays a tone at (7-bit address * 10) Hz for 700ms.
-   Example: INA238 at 0x40 (64) = 640 Hz   OLED at 0x3C (60) = 600 Hz */
-void I2C_Scan(void)
-{
-  /* Power on OLED so it can respond during the scan */
-  HAL_GPIO_WritePin(OLED_RESET_GPIO_Port, OLED_RESET_Pin, GPIO_PIN_RESET);
-  HAL_GPIO_WritePin(OLED_POWER_EN_GPIO_Port, OLED_POWER_EN_Pin, GPIO_PIN_SET);
-  HAL_Delay(100);
-  HAL_GPIO_WritePin(OLED_RESET_GPIO_Port, OLED_RESET_Pin, GPIO_PIN_SET);
-  HAL_Delay(10);
-
-  /* Start signal: two short high beeps */
-  Buzzer_Tone(1200, 80);
-  Buzzer_Tone(1200, 80);
-  HAL_Delay(400);
-
-  for (uint8_t addr = 0x08; addr <= 0x77; addr++)
-  {
-    if (HAL_I2C_IsDeviceReady(&hi2c2, (uint16_t)addr << 1, 2, 20) == HAL_OK)
-    {
-      uint32_t freq = (uint32_t)addr * 10;   /* 0x3C=600Hz  0x3D=610Hz  0x40=640Hz */
-      Buzzer_Tone(freq, 700);
-      HAL_Delay(300);
-    }
-  }
-
-  /* Done signal: three short high beeps */
-  Buzzer_Tone(1200, 80);
-  Buzzer_Tone(1200, 80);
-  Buzzer_Tone(1200, 80);
-}
 
 void Buzzer_Off(void)
 {

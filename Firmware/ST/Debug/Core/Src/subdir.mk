@@ -10,6 +10,7 @@ C_SRCS += \
 ../Core/Src/boot.c \
 ../Core/Src/ina238.c \
 ../Core/Src/main.c \
+../Core/Src/meter.c \
 ../Core/Src/oled.c \
 ../Core/Src/stm32g0xx_hal_msp.c \
 ../Core/Src/stm32g0xx_it.c \
@@ -23,6 +24,7 @@ OBJS += \
 ./Core/Src/boot.o \
 ./Core/Src/ina238.o \
 ./Core/Src/main.o \
+./Core/Src/meter.o \
 ./Core/Src/oled.o \
 ./Core/Src/stm32g0xx_hal_msp.o \
 ./Core/Src/stm32g0xx_it.o \
@@ -36,6 +38,7 @@ C_DEPS += \
 ./Core/Src/boot.d \
 ./Core/Src/ina238.d \
 ./Core/Src/main.d \
+./Core/Src/meter.d \
 ./Core/Src/oled.d \
 ./Core/Src/stm32g0xx_hal_msp.d \
 ./Core/Src/stm32g0xx_it.d \
@@ -51,7 +54,7 @@ Core/Src/%.o Core/Src/%.su Core/Src/%.cyclo: ../Core/Src/%.c Core/Src/subdir.mk
 clean: clean-Core-2f-Src
 
 clean-Core-2f-Src:
-	-$(RM) ./Core/Src/banana.cyclo ./Core/Src/banana.d ./Core/Src/banana.o ./Core/Src/banana.su ./Core/Src/banana_frames.cyclo ./Core/Src/banana_frames.d ./Core/Src/banana_frames.o ./Core/Src/banana_frames.su ./Core/Src/boot.cyclo ./Core/Src/boot.d ./Core/Src/boot.o ./Core/Src/boot.su ./Core/Src/ina238.cyclo ./Core/Src/ina238.d ./Core/Src/ina238.o ./Core/Src/ina238.su ./Core/Src/main.cyclo ./Core/Src/main.d ./Core/Src/main.o ./Core/Src/main.su ./Core/Src/oled.cyclo ./Core/Src/oled.d ./Core/Src/oled.o ./Core/Src/oled.su ./Core/Src/stm32g0xx_hal_msp.cyclo ./Core/Src/stm32g0xx_hal_msp.d ./Core/Src/stm32g0xx_hal_msp.o ./Core/Src/stm32g0xx_hal_msp.su ./Core/Src/stm32g0xx_it.cyclo ./Core/Src/stm32g0xx_it.d ./Core/Src/stm32g0xx_it.o ./Core/Src/stm32g0xx_it.su ./Core/Src/syscalls.cyclo ./Core/Src/syscalls.d ./Core/Src/syscalls.o ./Core/Src/syscalls.su ./Core/Src/sysmem.cyclo ./Core/Src/sysmem.d ./Core/Src/sysmem.o ./Core/Src/sysmem.su ./Core/Src/system_stm32g0xx.cyclo ./Core/Src/system_stm32g0xx.d ./Core/Src/system_stm32g0xx.o ./Core/Src/system_stm32g0xx.su
+	-$(RM) ./Core/Src/banana.cyclo ./Core/Src/banana.d ./Core/Src/banana.o ./Core/Src/banana.su ./Core/Src/banana_frames.cyclo ./Core/Src/banana_frames.d ./Core/Src/banana_frames.o ./Core/Src/banana_frames.su ./Core/Src/boot.cyclo ./Core/Src/boot.d ./Core/Src/boot.o ./Core/Src/boot.su ./Core/Src/ina238.cyclo ./Core/Src/ina238.d ./Core/Src/ina238.o ./Core/Src/ina238.su ./Core/Src/main.cyclo ./Core/Src/main.d ./Core/Src/main.o ./Core/Src/main.su ./Core/Src/meter.cyclo ./Core/Src/meter.d ./Core/Src/meter.o ./Core/Src/meter.su ./Core/Src/oled.cyclo ./Core/Src/oled.d ./Core/Src/oled.o ./Core/Src/oled.su ./Core/Src/stm32g0xx_hal_msp.cyclo ./Core/Src/stm32g0xx_hal_msp.d ./Core/Src/stm32g0xx_hal_msp.o ./Core/Src/stm32g0xx_hal_msp.su ./Core/Src/stm32g0xx_it.cyclo ./Core/Src/stm32g0xx_it.d ./Core/Src/stm32g0xx_it.o ./Core/Src/stm32g0xx_it.su ./Core/Src/syscalls.cyclo ./Core/Src/syscalls.d ./Core/Src/syscalls.o ./Core/Src/syscalls.su ./Core/Src/sysmem.cyclo ./Core/Src/sysmem.d ./Core/Src/sysmem.o ./Core/Src/sysmem.su ./Core/Src/system_stm32g0xx.cyclo ./Core/Src/system_stm32g0xx.d ./Core/Src/system_stm32g0xx.o ./Core/Src/system_stm32g0xx.su
 
 .PHONY: clean-Core-2f-Src
 

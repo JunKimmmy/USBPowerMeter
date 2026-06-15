@@ -1,0 +1,14 @@
+../Core/Src/banana.c:13:13:fb_clear	1
+../Core/Src/banana.c:15:13:fb_px	3
+../Core/Src/banana.c:21:13:fb_line	9
+../Core/Src/banana.c:35:13:fb_circle	3
+../Core/Src/banana.c:49:13:fb_str	7
+../Core/Src/banana.c:60:13:fb_flush	2
+../Core/Src/banana.c:73:13:buzz	2
+../Core/Src/banana.c:114:17:rnd16	1
+../Core/Src/banana.c:156:13:draw_ship	2
+../Core/Src/banana.c:186:13:draw_bullet	1
+../Core/Src/banana.c:191:13:draw_asteroid	3
+../Core/Src/banana.c:199:13:draw_stars	2
+../Core/Src/banana.c:205:13:draw_score	1
+../Core/Src/banana.c:223:6:DANCE_Run	42

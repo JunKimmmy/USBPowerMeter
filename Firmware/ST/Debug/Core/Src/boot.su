@@ -1,0 +1,8 @@
+../Core/Src/boot.c:10:13:bfb_px	16	static
+../Core/Src/boot.c:15:13:bfb_hline	32	static
+../Core/Src/boot.c:19:13:bfb_vline	32	static
+../Core/Src/boot.c:23:13:bfb_str	40	static
+../Core/Src/boot.c:33:13:bfb_flush	160	static
+../Core/Src/boot.c:42:13:bfb_flush_page	168	static
+../Core/Src/boot.c:51:13:bfb_diamond	16	static
+../Core/Src/boot.c:58:6:BOOT_Run	16	static

@@ -1,8 +1,11 @@
 # USB-C Power Meter
 
 <p align="center">
-  <img src="images/firmware-flashing.jpg" width="49%" alt="Device running in enclosure"/>
-  <img src="images/pcb-in-enclosure.jpg" width="49%" alt="PCB inside open enclosure"/>
+  <img src="images/final-plugged-in.jpg" width="49%" alt="Device plugged in showing power graph"/>
+  <img src="images/final-pcb-and-enclosure.jpg" width="49%" alt="Finished enclosure and bare PCB"/>
+</p>
+<p align="center">
+  <img src="images/final-in-hand.jpg" width="49%" alt="Finished device in hand"/>
 </p>
 
 A compact USB-C passthrough power meter that displays real-time voltage, current, and power on an integrated 128×64 OLED screen. It sits inline between a USB-C charger and a device — all USB signals pass through transparently while the onboard MCU samples the INA238 power monitor and drives the display.
@@ -73,11 +76,20 @@ Designed in **KiCad 10**. All custom symbols and footprints are in `libs/`.
 
 ---
 
-## Development Videos
+## Build Process
+
+All components were **hand-soldered**. Firmware was flashed over SWD using an **ST-Link V3 Mini**.
+
+<p align="center">
+  <img src="images/pcb-in-enclosure.jpg" width="49%" alt="PCB sitting in open 3D-printed enclosure"/>
+  <img src="images/firmware-flashing.jpg" width="49%" alt="ST-Link V3 Mini connected via SWD ribbon for flashing"/>
+</p>
+
+### Videos
 
 | Video | Description |
 |-------|-------------|
-| [PCB Assembly](videos/pcb-assembly.mp4) | Soldering and assembling the board |
+| [PCB Assembly](videos/pcb-assembly.mp4) | Hand-soldering all components onto the board |
 | [Display Testing](videos/display-testing.mp4) | OLED display bring-up and meter UI |
 | [Buzzer Testing](videos/buzzer-testing.mp4) | Buzzer tone testing |
 
@@ -113,7 +125,7 @@ Navigate between modes with the onboard buttons.
 
 1. Open `Firmware/ST/` in **STM32CubeIDE**
 2. Build (Ctrl+B) — targets STM32G030K6T6, `STM32G030K6TX_FLASH.ld`
-3. Flash via the SWD header on the board using ST-Link or a compatible programmer
+3. Connect **ST-Link V3 Mini** to the SWD header and flash
 
 ---
 
@@ -133,5 +145,5 @@ Firmware/ST/
   Drivers/                    STM32 HAL + CMSIS
   generate_frames.py          Bitmap conversion tool
 images/                       PCB renders, enclosure CAD, real photos
-videos/                       Development and testing footage
+videos/                       Assembly and testing footage
 ```

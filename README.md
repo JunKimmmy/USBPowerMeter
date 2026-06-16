@@ -6,7 +6,7 @@
 </p>
 <p align="center">
   <img src="images/final-pcb-and-enclosure.jpg" width="49%" alt="Finished enclosure and bare PCB"/>
-  <img src="images/final-plugged-in.jpg" width="49%" alt="Device plugged in showing power graph"/>
+  <img src="images/test-reading.png" width="49%" alt="Device reading power from mini hotplate"/>
 </p>
 
 A compact USB-C passthrough power meter that displays real-time voltage, current, and power on an integrated 128×64 OLED screen. It sits inline between a USB-C charger and a device — all USB signals pass through transparently while the onboard MCU samples the INA238 power monitor and drives the display.
@@ -93,6 +93,20 @@ All components were **hand-soldered**. Firmware was flashed over SWD using an **
 | [PCB Assembly](videos/pcb-assembly.mp4) | Hand-soldering all components onto the board |
 | [Display Testing](videos/display-testing.mp4) | OLED display bring-up and meter UI |
 | [Buzzer Testing](videos/buzzer-testing.mp4) | Buzzer tone testing |
+
+---
+
+## Testing
+
+The meter was tested by powering a **mini hotplate** (~20 V supply). The power graph clearly shows the hotplate's heating element ramping up linearly from 0 W as it heats, plateauing around **42 W** once it reaches temperature, then dropping sharply when switched off.
+
+<p align="center">
+  <img src="images/test-turning-on.jpg" width="49%" alt="Power graph rising as hotplate heats up"/>
+  <img src="images/test-turning-off.jpg" width="49%" alt="Power graph plateauing at ~42 W then dropping when hotplate is switched off"/>
+</p>
+<p align="center">
+  <img src="images/test-reading.png" width="60%" alt="Close-up of meter display during hotplate test"/>
+</p>
 
 ---
 

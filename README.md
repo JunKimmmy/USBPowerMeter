@@ -5,7 +5,8 @@
   <img src="images/pcb-in-enclosure.jpg" width="49%" alt="PCB inside open enclosure"/>
 </p>
 <p align="center">
-  <img src="images/final-pcb-and-enclosure.jpg" width="60%" alt="Finished enclosure and bare PCB"/>
+  <img src="images/final-pcb-and-enclosure.jpg" width="49%" alt="Finished enclosure and bare PCB"/>
+  <img src="images/final-plugged-in.jpg" width="49%" alt="Device plugged in showing power graph"/>
 </p>
 
 A compact USB-C passthrough power meter that displays real-time voltage, current, and power on an integrated 128×64 OLED screen. It sits inline between a USB-C charger and a device — all USB signals pass through transparently while the onboard MCU samples the INA238 power monitor and drives the display.

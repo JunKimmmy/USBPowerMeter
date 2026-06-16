@@ -1,6 +1,9 @@
 # USB-C Power Meter
 
-<!-- Add photos/demo GIF here -->
+<p align="center">
+  <img src="images/firmware-flashing.jpg" width="49%" alt="Device running in enclosure"/>
+  <img src="images/pcb-in-enclosure.jpg" width="49%" alt="PCB inside open enclosure"/>
+</p>
 
 A compact USB-C passthrough power meter that displays real-time voltage, current, and power on an integrated 128×64 OLED screen. It sits inline between a USB-C charger and a device — all USB signals pass through transparently while the onboard MCU samples the INA238 power monitor and drives the display.
 
@@ -33,7 +36,14 @@ A compact USB-C passthrough power meter that displays real-time voltage, current
 
 ---
 
-## Hardware
+## PCB
+
+<p align="center">
+  <img src="images/pcb-front.jpg" width="49%" alt="PCB front — component side"/>
+  <img src="images/pcb-back.jpg" width="49%" alt="PCB back — power supply side"/>
+</p>
+
+Designed in **KiCad 10**. All custom symbols and footprints are in `libs/`.
 
 ### Key ICs
 
@@ -45,14 +55,31 @@ A compact USB-C passthrough power meter that displays real-time voltage, current
 | LMR36006 | VBUS-to-3.3 V synchronous buck regulator |
 | DGS0010A | 3.8 V boost supply for OLED |
 
-### Schematic & PCB
+---
 
-Designed in **KiCad 10**. All custom symbols and footprints are in `libs/`.
+## Enclosure
 
-### Enclosure
+<p align="center">
+  <img src="images/enclosure-front.png" width="32%" alt="Enclosure front"/>
+  <img src="images/enclosure-side.png" width="32%" alt="Enclosure side"/>
+  <img src="images/enclosure-open.png" width="32%" alt="Enclosure open showing PCB"/>
+</p>
+<p align="center">
+  <img src="images/enclosure-lid.png" width="32%" alt="Enclosure lid"/>
+</p>
 
 3D-printable enclosure designed in OnShape:
 [View in OnShape](https://cad.onshape.com/documents/12768789c7e8d715e02a9c44/w/91224a42db391f032592c489/e/40e560f0614cc0d05faddfcd?renderMode=0&uiState=6a30851d7d6de7ff176b633c)
+
+---
+
+## Development Videos
+
+| Video | Description |
+|-------|-------------|
+| [PCB Assembly](videos/pcb-assembly.mp4) | Soldering and assembling the board |
+| [Display Testing](videos/display-testing.mp4) | OLED display bring-up and meter UI |
+| [Buzzer Testing](videos/buzzer-testing.mp4) | Buzzer tone testing |
 
 ---
 
@@ -80,11 +107,6 @@ Navigate between modes with the onboard buttons.
 | `ina238.c` | INA238 driver — shunt/bus voltage, current, power registers |
 | `boot.c` | Animated boot screen |
 | `banana.c / banana_frames.c` | Dancing-banana easter egg animation |
-
-### Tools
-
-| File | Purpose |
-|------|---------|
 | `generate_frames.py` | Converts 249×246 GIF PROGMEM bitmaps to SSD1315 page-format C arrays |
 
 ### Building & Flashing
@@ -110,4 +132,6 @@ Firmware/ST/
   Core/Inc/                   Application headers
   Drivers/                    STM32 HAL + CMSIS
   generate_frames.py          Bitmap conversion tool
+images/                       PCB renders, enclosure CAD, real photos
+videos/                       Development and testing footage
 ```
